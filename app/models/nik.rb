@@ -91,6 +91,10 @@ class Nik < ActiveRecord::Base
     siblings.order(:id).where("id > ?", id).first
   end
 
+  def upvote!
+    increment!(:votes)
+  end
+
   private
   def recalculate_branch_weight
     RecalculateBranchesWorker.perform_async(id)
