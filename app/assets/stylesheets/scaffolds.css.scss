@@ -1,3 +1,5 @@
+//Mixins
+
 body {
   background-color: #ddd;
   color: #333;
@@ -113,5 +115,9 @@ h1, h2 {
 
 .nik_fields {
   border: 0;
+  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
+  font-size: 18px;
+  padding: 20px;
   width: 100%;
 }
