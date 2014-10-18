@@ -2,6 +2,7 @@ class Nik < ActiveRecord::Base
   has_ltree_hierarchy
 
   belongs_to :user
+  has_many :weights, class_name: "BranchWeight", foreign_key: :story_id
 
   class << self
     def without_root
