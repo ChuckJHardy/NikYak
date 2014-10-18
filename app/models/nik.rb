@@ -16,7 +16,7 @@ class Nik < ActiveRecord::Base
 
   class << self
     def without_root
-      where("parent_id IS NOT NULL")
+      where("niks.parent_id IS NOT NULL")
     end
 
     # returns last leafs in the branches sorted by weight descending
