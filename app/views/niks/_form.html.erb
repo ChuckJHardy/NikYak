@@ -17,11 +17,13 @@
     <%= f.text_field :title, :class => "nik_fields" %>
   </div>
   <div class="form-group">
-    <label><%= f.label :body %></label>
+    <label>Introduction paragraph</label>
+    <div class="field-explaination">Write an introduction for your story, but just a paragraph. Other people will contribute based on this introduction.</div>
     <%= f.text_area :body, :class => "nik_fields" %>
   </div>
   <div class="form-group">
-    <label><%= f.label :limit %></label>
+    <label>Submission limit</label>
+    <div class="field-explaination">No one wants a story that never ends. Choose how many paragraphs you want this story to have. We'll choose a random number if it's empty.</div>
     <%= f.number_field :limit, :class => "nik_fields" %>
   </div>
   <div class="actions">
