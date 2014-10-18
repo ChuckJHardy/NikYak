@@ -174,4 +174,40 @@ h1, h2 {
 //Hero
 .hero {
   background-color: $accent-color;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin: 0 0 30px 0;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero .btn-main {
+  font-size: 20px;
+}
+
+//Story thumbnail
+.story-thumbnail {
+  @include drop-shadow;
+  background-color: white;
+  height: 200px;
+  padding: 20px;
+  position: relative;
+}
+
+.story-thumbnail-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.story-thumbnail .btn-second {
+  bottom: 20px;
+  position: absolute;
 }
