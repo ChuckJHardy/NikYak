@@ -25,27 +25,10 @@
 <%= link_to 'See all niks', niks_path, :class => "btn-style btn-second" %>
 
 <% if user_signed_in? %>
-  <%= form_for(@new_nik) do |f| %>
-    <% if @new_nik.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@new_nik.errors.count, "error") %> prohibited this yak from being saved:</h2>
-
-        <ul>
-          <% @new_nik.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <%= f.hidden_field :parent_id %>
-    <div class="field">
-      <label for="body">What Now?</label>:<br>
-      <%= f.text_area :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  <% if user_can_add_yak?(@new_nik.parent) %>
+    <%= render 'form_yak', nik: @new_nik %>
+  <% else %>
+    <%= render 'share_your_yak', yak: @nik %>
   <% end %>
 <% else %>
   Sign In/up to Reply
