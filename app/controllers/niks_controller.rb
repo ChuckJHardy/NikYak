@@ -3,7 +3,7 @@ class NiksController < ApplicationController
   before_action :set_nik, only: [:show, :edit, :update, :destroy]
 
   def index
-    @niks = Nik.all
+    @niks = Nik.roots
     respond_with(@niks)
   end
 
