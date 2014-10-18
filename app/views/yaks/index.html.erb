@@ -1,0 +1,25 @@
+<h1>Listing yaks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Nik</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yaks.each do |yak| %>
+      <tr>
+        <td><%= yak.body %></td>
+        <td><%= yak.nik %></td>
+        <td><%= yak.user.email %></td>
+        <td><%= link_to 'Show', nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Edit', edit_nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Destroy', nik_yak_path(@nik, yak), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

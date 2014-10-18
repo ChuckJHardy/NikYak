@@ -7,13 +7,15 @@ namespace :db do
           parent_id: nil,
           body: node[:content],
           title: node[:title],
-          votes: rand(10)
+          votes: rand(10),
+          user_id: User.first.id
         )
       else
         Nik.create(
           parent_id: parent.id,
           body: node[:content],
-          votes: rand(10)
+          votes: rand(10),
+          user_id: User.first.id
         )
       end
 
