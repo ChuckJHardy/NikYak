@@ -46,6 +46,7 @@ body {
   color: #333;  
   font-size: 16px;
   line-height: normal;
+  margin-bottom: 100px;
 }
 
 a, a:hover {
@@ -169,24 +170,34 @@ h1, h2, h3 {
   width: 100%;
 }
 
-//Footer
-.story-page-footer {
-  background-color: $main-color;
-  text-align: center;
-  margin-top: 30px;
-  padding: 50px 0;
-}
-
 //Story page
 @media (min-width: 768px){
-  .content-container {
+  .content-container {    
+    margin-top: 100px;
+    max-width: 730px; 
+    padding: 0;   
+  }
+
+  .sign-up-container {
     @include border-style;
     @include drop-shadow;
-    margin-top: 30px;
-    max-width: 730px;
     padding: 50px;
+    max-width: 730px;
   }
 }
+
+.sign-up-container h3 {
+  margin: 0 0 10px 0;
+}
+
+.sign-up-container p {
+  margin: 0 0 20px 0;
+}
+
+.sign-up-container .btn-main {
+  margin-right: 10px;
+}
+
 
 .story-container {
   border-bottom: 2px dotted #ddd;
@@ -210,10 +221,16 @@ h1, h2, h3 {
   padding: 0;
 }
 
+.story-container:first-child h1 {
+  font-size: 42px;
+  line-height: 52px;
+}
+
 .story-container:first-child .story-intro-paragraph {
-  font-size: 22px;
+  font-size: 24px;
+  line-height: 38px;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .story-container:first-child .story-intro-info {

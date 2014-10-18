@@ -1,28 +1,17 @@
 <div class="container content-container">
-  <div>
-    <%= render @nik.first_branch %>
-  </div>
+  <%= render @nik.first_branch %>
+</div>
 
+<div class="container sign-up-container">
   <% if user_signed_in? %>
-  <div>
     <% if user_can_add_yak?(@new_nik.parent) %>
       <%= render 'form_yak', nik: @new_nik %>
     <% else %>
       <%= render 'share_your_yak', yak: @nik %>
     <% end %>
-  </div>
   <% else %>
-  <div>
-    <h3>Sign in or login to contribute</h3>
-    <%= link_to 'Sign in', new_user_session_path %>
-    <%= link_to 'Sign up', new_user_registration_path %>
-  </div>
+    <h3>This story isn't finished yet. What now?</h3>
+    <%= link_to "Sign in with Facebook", omniauth_url(:facebook), :class => "btn-style btn-main" %>
+    <%= link_to "Sign in with Twitter", omniauth_url(:twitter), :class => "btn-style btn-main" %>
   <% end %>
-</div>
-
-<div class="story-page-footer">
-  <div class="container">
-    <%= link_to 'See all niks', niks_path, :class => "btn-style btn-second" %>
-  </div>
-</div>
-  
+</div>  
