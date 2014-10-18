@@ -30,4 +30,20 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :name, presence: true
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = "#{auth.info.first_name} #{auth.info.last_name}"
+    end
+  end
+
+  def set_dummy_mail
+    if self.provider == "twitter"
+      self.email = "#{self.name}_email@nikyak.com"
+    end
+  end
 end
