@@ -4,6 +4,11 @@ class Nik < ActiveRecord::Base
   belongs_to :user
   has_many :weights, class_name: "BranchWeight", foreign_key: :story_id
 
+  after_commit :recalculate_branch_weight, if: lambda { |record|
+    record.previous_changes.include?(:votes) &&
+    record.previous_changes[:votes].first != record.previous_changes[:votes].last
+  }
+
   class << self
     def without_root
       where("parent_id IS NOT NULL")
@@ -40,5 +45,10 @@ class Nik < ActiveRecord::Base
 
   def first_branch_without_root
     first_branch.without_root
+  end
+
+  private
+  def recalculate_branch_weight
+    RecalculateBranchesWorker.perform_async(id)
   end
 end
