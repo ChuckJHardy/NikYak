@@ -19,9 +19,11 @@
 }
 
 //Colors
-$main-color: #E97131;
+$main-color: #000000;
 $secondary-color: #ffffff;
-$accent-color: #61B545;
+$accent-color: #E97131;
+
+$main-color-inverse: #ffffff;
 
 $button-border-color: #ffffff;
 
@@ -33,6 +35,10 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: normal;
+}
+
+a, a:hover {
+  color: $accent-color;
 }
 
 pre {
@@ -84,6 +90,7 @@ div {
 //Typography
 h1, h2, h3 {
   font-family: 'Fredoka One', sans-serif;
+  color: $main-color;
 }
 
 h1, h2 {
@@ -101,12 +108,13 @@ h1, h2 {
   @include drop-shadow;
   background-color: $main-color;
   border: 2px solid $button-border-color;
-  color: white;  
+  color: $main-color-inverse;  
 }
 
 .btn-main:hover {
   @include no-shadow;
-  color: white;
+  background-color: $accent-color;
+  color: $main-color-inverse;
   text-decoration: none;
 }
 
@@ -118,13 +126,14 @@ h1, h2 {
   @include drop-shadow;
   background-color: $secondary-color;
   border: 2px solid $main-color;
-  color: #E97131;
+  color: $main-color;
 }
 
 .btn-second:hover {
   @include no-shadow;
+  background-color: $accent-color;
+  color: $main-color-inverse;
   text-decoration: none;
-  color: #E97131;
 }
 
 .btn-second:active {
@@ -173,13 +182,14 @@ h1, h2 {
 
 //Hero
 .hero {
-  background-color: $accent-color;
-  color: white;
+  background-color: #333333;
+  color: $main-color-inverse;
   text-align: center;
   padding: 100px 0;
 }
 
 .hero-title {
+  color: $main-color-inverse;
   font-size: 48px;
   margin: 0 0 30px 0;
 }
