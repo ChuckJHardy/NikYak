@@ -2,8 +2,6 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <p id="notice"><%= notice %></p>
-
         <h1>
           <%= nik.title %>
         </h1>
@@ -26,27 +24,33 @@
 
 <%= link_to 'See all niks', niks_path, :class => "btn-style btn-second" %>
 
-<%= form_for(@new_nik) do |f| %>
-  <% if @new_nik.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_nik.errors.count, "error") %> prohibited this yak from being saved:</h2>
+<% if user_signed_in? %>
+  <%= form_for(@new_nik) do |f| %>
+    <% if @new_nik.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@new_nik.errors.count, "error") %> prohibited this yak from being saved:</h2>
 
-      <ul>
-        <% @new_nik.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @new_nik.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :parent_id %>
+    <div class="field">
+      <label for="body">What Now?</label>:<br>
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <%= f.hidden_field :parent_id %>
-  <div class="field">
-    <label for="body">What Now?</label>:<br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% else %>
+  Sign In/up to Reply
+  <%= link_to 'Sign in', new_user_session_path %>
+  <%= link_to 'Sign up', new_user_registration_path %>
 <% end %>
 
 <%= social_share_button_tag(@nik.title, via: 'NikYakApp', url: nik_url(@nik), image: asset_path("icon.png")) %>
