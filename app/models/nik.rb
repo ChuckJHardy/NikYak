@@ -25,12 +25,16 @@ class Nik < ActiveRecord::Base
       joins("JOIN last_leaves_ids AS lli ON niks.id = lli.id")
   end
 
+  def self_and_ancestors_sorted
+    self_and_ancestors.order("niks.path")
+  end
+
   def root
     ancestors.find_by(parent_id: nil)
   end
 
   def first_branch
-    last_leaves.first.try(:self_and_ancestors) || self_and_ancestors
+    last_leaves.first.try(:self_and_ancestors_sorted) || self_and_ancestors_sorted
   end
 
   def first_branch_without_root
