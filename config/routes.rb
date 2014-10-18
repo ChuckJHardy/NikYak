@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     mount Upmin::Engine => '/admin'
   end
 
+  get "/profile", to: "profile#profile"
+
   root to: 'visitors#index'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

@@ -1,0 +1,29 @@
+<div id="profile-container">
+  <div id="profile-stories-authored">
+    <h3>My stories</h3>
+    <% current_user.niks.roots.each do |nik| %>
+      <div class="nik-authored">
+        <div class="title">
+          <%= link_to nik.title, nik_path(nik) %>
+        </div>
+        <div class="body">
+          <%= nik.body[0..50] %>...
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="profile-stories-contributed">
+    <h3>Stories I contributed to</h3>
+    <% current_user.niks.without_root.each do |nik| %>
+      <div class="nik-authored">
+        <div class="title">
+          <%= link_to nik.root.title, nik_path(nik) %>
+        </div>
+        <div class="body">
+          <%= nik.body[0..50] %>...
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
