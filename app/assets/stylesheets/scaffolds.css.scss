@@ -150,6 +150,17 @@ h1, h2, h3 {
   color: $main-color;
 }
 
+//Sign-up
+.sign-up {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.sign-up .btn-main {
+  display: block;
+  margin-bottom: 10px;
+}
+
 //forms 
 .nik_fields {
   @include border-thin-style;
