@@ -3,19 +3,22 @@
   <div class="col-sm-8 col-sm-offset-2">
     <%= render @nik.first_branch %>
   </div>
-</div>
-
-<% if user_signed_in? %>
-  <% if user_can_add_yak?(@new_nik.parent) %>
-    <%= render 'form_yak', nik: @new_nik %>
+  <% if user_signed_in? %>
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if user_can_add_yak?(@new_nik.parent) %>
+        <%= render 'form_yak', nik: @new_nik %>
+      <% else %>
+        <%= render 'share_your_yak', yak: @nik %>
+      <% end %>
+    </div>
   <% else %>
-    <%= render 'share_your_yak', yak: @nik %>
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>Sign In/up to Reply</h3>
+      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    </div>
   <% end %>
-<% else %>
-  Sign In/up to Reply
-  <%= link_to 'Sign in', new_user_session_path %>
-  <%= link_to 'Sign up', new_user_registration_path %>
-<% end %>
+</div>
 
 <div class="story-page-footer">
   <div class="container">
