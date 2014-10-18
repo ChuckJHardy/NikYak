@@ -1,5 +1,5 @@
 class NiksController < ApplicationController
-  before_action :authenticate_user!, expect: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_nik, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,7 +8,9 @@ class NiksController < ApplicationController
   end
 
   def show
-    @new_nik = Nik.new(user_id: current_user.id, parent: @nik.first_branch.last)
+    if user_signed_in?
+      @new_nik = Nik.new(user_id: current_user.id, parent: @nik.first_branch.last)
+    end
     respond_with(@nik)
   end
 
