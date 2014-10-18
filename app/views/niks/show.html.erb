@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @nik.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @nik.body %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @nik.limit %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @nik.user %>
+</p>
+
+<%= link_to 'Edit', edit_nik_path(@nik) %> |
+<%= link_to 'Back', niks_path %>
