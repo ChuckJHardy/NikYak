@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :yaks
+
   resources :niks
 
   authenticate :user, lambda { |u| u.admin? } do

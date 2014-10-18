@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @yak.body %>
+</p>
+
+<p>
+  <strong>Nik:</strong>
+  <%= @yak.nik %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @yak.user %>
+</p>
+
+<%= link_to 'Edit', edit_yak_path(@yak) %> |
+<%= link_to 'Back', yaks_path %>
