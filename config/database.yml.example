@@ -4,8 +4,8 @@ development:
   encoding: unicode
   database: yak_development
   pool:     5
-  username: 
-  password: 
+  username:
+  password:
   template: template0
 
 test:
@@ -17,3 +17,9 @@ test:
   username: postgres
   password: postgres
   template: template0
+
+production:
+  adapter:  postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+  database: yak_production
+  pool:     5
