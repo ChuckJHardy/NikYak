@@ -32,4 +32,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
+
+  def contributions
+    niks.
+      without_root.
+      joins("LEFT JOIN niks as roots ON niks.path @> roots.path AND roots.parent_id IS NULL").
+      where("roots.id IS NULL")
+  end
 end
