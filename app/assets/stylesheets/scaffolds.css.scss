@@ -26,6 +26,10 @@
   border: 1px solid $main-color; 
 }
 
+@mixin border-bottom-style {
+  border-bottom: 2px dotted #ddd;
+}
+
 
 //Colors
 $main-color: #000000;
@@ -146,6 +150,25 @@ h1, h2, h3 {
   color: $main-color-inverse;
 }
 
+//Structure
+
+.section {
+  @include border-style;
+  @include drop-shadow;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.section h3 {
+  margin: 0 0 20px 0;
+}
+
+.nik-authored {
+  @include border-bottom-style;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
 //Navigation
 .nik-navigation {
   border-bottom: 2px solid #ddd;
@@ -188,7 +211,7 @@ h1, h2, h3 {
 //forms 
 .nik_fields {
   border: 0;
-  border-bottom: 2px dotted #dddddd;
+  @include border-bottom-style;
   font-size: 16px;
   padding: 0;
   width: 100%;

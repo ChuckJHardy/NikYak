@@ -1,5 +1,5 @@
-<div id="profile-container">
-  <div id="profile-stories-authored">
+<div id="profile-container" class="container">
+  <div id="profile-stories-authored" class="section">
     <h3>My stories</h3>
     <% current_user.niks.roots.each do |nik| %>
       <div class="nik-authored">
@@ -13,7 +13,7 @@
     <% end %>
   </div>
 
-  <div id="profile-stories-contributed">
+  <div id="profile-stories-contributed" class="section">
     <h3>Stories I contributed to</h3>
     <% current_user.niks.without_root.each do |nik| %>
       <div class="nik-authored">
@@ -26,7 +26,9 @@
       </div>
     <% end %>
   </div>
+
+  <%= link_to "Edit settings", edit_user_registration_path %>
 </div>
 
-<%= link_to "Edit settings", edit_user_registration_path %>
+
 
