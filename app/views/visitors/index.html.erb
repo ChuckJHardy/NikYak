@@ -11,12 +11,12 @@
 </div>
 
 <div class="container">
-  <h2>Recent stories</h2>
+  <h2 class="homepage-section-label">Recent stories</h2>
   <div class="row">
     <% @niks.each do |nik| %>
       <div class="col-sm-3">
         <div class="story-thumbnail">
-          <h2 class="story-thumbnail-title"><%= nik.title %></h2>
+          <h2 class="story-thumbnail-title"><%= link_to nik.title, nik %></h2>
           <%= link_to 'Read story', nik, :class => "btn-style btn-second" %>
         </div>        
       </div>

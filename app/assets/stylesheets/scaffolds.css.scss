@@ -266,7 +266,8 @@ h1, h2, h3 {
   margin: 0 0 20px 0;
 }
 
-.story-container  p {
+.story-container p {
+  line-height: 25px;
   margin: 0;
 }
 
@@ -315,6 +316,11 @@ h1, h2, h3 {
   font-size: 20px;
 }
 
+//Homepage
+.homepage-section-label {
+  margin: 0 0 20px 0;
+}
+
 //Story thumbnail
 .story-thumbnail {
   @include drop-shadow;
@@ -327,13 +333,24 @@ h1, h2, h3 {
 }
 
 .story-thumbnail-title {
-  font-size: 18px;
+  line-height: 24px;
   margin: 0;
+}
+
+.story-thumbnail-title a{
+  color: $main-color;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .story-thumbnail .btn-second {
   bottom: 20px;
   position: absolute;
+}
+
+//New nik
+.new-nik-header {
+  margin: 50px 0;
 }
 
 // Next step
