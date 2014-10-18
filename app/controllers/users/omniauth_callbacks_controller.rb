@@ -15,6 +15,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def create
+    puts request.env['omniauth.params'].inspect
+
+    session[:after_sign_up_url] = request.env['omniauth.params']["after_sign_up_url"]
+
     auth_params = request.env["omniauth.auth"]
     email = auth_params['info']['email'] || "#{auth_params['uid']}@nikyak.com"
     provider = AuthenticationProvider.where(name: auth_params.provider).first
