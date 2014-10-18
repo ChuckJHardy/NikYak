@@ -304,8 +304,8 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
-  social-share-button!
   sidekiq
+  social-share-button!
   spring
   turbolinks
   uglifier (>= 1.3.0)

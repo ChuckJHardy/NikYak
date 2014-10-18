@@ -3,6 +3,11 @@ class Nik < ActiveRecord::Base
 
   belongs_to :user
   has_many :weights, class_name: "BranchWeight", foreign_key: :story_id
+  has_one :last_leave_attached_weight,
+    class_name: "BranchWeight",
+    foreign_key: :path,
+    primary_key: :path
+
 
   after_commit :recalculate_branch_weight, if: lambda { |record|
     record.previous_changes.include?(:votes) &&
@@ -12,6 +17,33 @@ class Nik < ActiveRecord::Base
   class << self
     def without_root
       where("parent_id IS NOT NULL")
+    end
+
+    # returns last leafs in the branches sorted by weight descending
+    def top_stories
+      with(last_leaves: select("niks.id").
+        joins("LEFT JOIN niks AS niks2 ON niks.path @> niks2.path AND niks.path != niks2.path").
+        where("niks.parent_id IS NOT NULL").
+        group("niks.id").
+        having("COUNT(niks2.id) = 0").
+        order("niks.path")
+      ).joins("JOIN last_leaves AS ll ON niks.id = ll.id").
+        joins(:last_leave_attached_weight).
+        order("branch_weights.weight DESC")
+    end
+
+    def least_popular_stories
+      top_stories.reorder("branch_weights.weight")
+    end
+
+    def roots_without_replies
+      with(
+        filtered_roots: roots.
+          select("niks.id").
+          joins("LEFT JOIN niks AS niks2 ON niks.id = niks2.parent_id").
+          having("COUNT(niks2.id) = 0").
+          group("niks.id")
+      ).joins("JOIN filtered_roots AS fr ON niks.id = fr.id")
     end
   end
 
