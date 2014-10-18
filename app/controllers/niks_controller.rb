@@ -1,6 +1,6 @@
-class NiksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+class NiksController < AuthorizedController
   before_action :set_nik, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate, only: [:show, :index]
 
   def index
     @niks = Nik.roots
