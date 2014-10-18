@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
-  before_create :set_dummy_mail
-
   def self.create_from_omniauth(params)
+    email = params['info']['email'] || "#{params['uid']}@nikyak.com"
     attributes = {
-      email: params['info']['email'],
+      email: email,
       password: Devise.friendly_token
     }
 
@@ -24,10 +23,4 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  def set_dummy_mail
-    if self.provider == "twitter"
-      self.email = "#{self.name}_email@nikyak.com"
-    end
-  end
 end
