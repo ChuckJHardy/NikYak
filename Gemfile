@@ -21,6 +21,7 @@ gem 'ltree_hierarchy', github: 'Leadformance/ltree_hierarchy'
 gem 'postgres_ext'
 gem 'social-share-button', github: 'InsertCoffee/social-share-button'
 gem 'sidekiq'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'
