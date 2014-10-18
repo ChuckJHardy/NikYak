@@ -83,6 +83,14 @@ class Nik < ActiveRecord::Base
     first_branch.last
   end
 
+  def left_sibling
+    siblings.order(:id).where("id < ?", id).last
+  end
+
+  def right_sibling
+    siblings.order(:id).where("id > ?", id).first
+  end
+
   private
   def recalculate_branch_weight
     RecalculateBranchesWorker.perform_async(id)
