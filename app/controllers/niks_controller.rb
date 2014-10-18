@@ -1,4 +1,5 @@
 class NiksController < ApplicationController
+  before_action :authenticate_user!, expect: [:index, :show]
   before_action :set_nik, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +20,7 @@ class NiksController < ApplicationController
   end
 
   def create
-    @nik = Nik.new(nik_params)
+    @nik = Nik.new nik_params.merge(user_id: current_user.id)
     @nik.save
     respond_with(@nik)
   end
@@ -40,6 +41,6 @@ class NiksController < ApplicationController
     end
 
     def nik_params
-      params.require(:nik).permit(:title, :body, :limit, :user_id)
+      params.require(:nik).permit(:title, :body, :limit)
     end
 end
