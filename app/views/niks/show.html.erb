@@ -1,48 +1,50 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <p id="notice"><%= notice %></p>
+<% @nik.first_branch.each do |nik| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p id="notice"><%= notice %></p>
 
-      <h1>
-        <%= @nik.title %>
-      </h1>
+        <h1>
+          <%= nik.title %>
+        </h1>
 
-      <p>
-        <%= @nik.votes %>
-      </p>
+        <p>
+          <%= nik.votes %>
+        </p>
 
-      <p>
-        <%= @nik.body %>
-      </p>
+        <p>
+          <%= nik.body %>
+        </p>
 
-      <p>
-        <%= @nik.limit %>
-      </p>
-
-      <%= form_for(@yak) do |f| %>
-        <% if @yak.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@yak.errors.count, "error") %> prohibited this yak from being saved:</h2>
-
-            <ul>
-            <% @yak.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <%= f.hidden_field :parent_id %>
-        <div class="field">
-          <label for="body">What Now?</label>:<br>
-          <%= f.text_area :body %>
-        </div>
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
-      <%= link_to 'Edit', edit_nik_path(@nik), :class => "btn-style btn-second" %>
-      <%= link_to 'See all niks', niks_path, :class => "btn-style btn-second" %>
+        <p>
+          <%= nik.limit %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
+
+<%= link_to 'See all niks', niks_path, :class => "btn-style btn-second" %>
+
+<%= form_for(@yak) do |f| %>
+  <% if @yak.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yak.errors.count, "error") %> prohibited this yak from being saved:</h2>
+
+      <ul>
+        <% @yak.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :parent_id %>
+  <div class="field">
+    <label for="body">What Now?</label>:<br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

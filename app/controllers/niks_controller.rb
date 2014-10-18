@@ -8,7 +8,7 @@ class NiksController < ApplicationController
   end
 
   def show
-    @yak = Nik.new(user_id: current_user.id, parent: @nik)
+    @yak = Nik.new(user_id: current_user.id, parent: @nik.first_branch.last)
     respond_with(@nik)
   end
 
