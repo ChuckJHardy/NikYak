@@ -19,4 +19,8 @@ class Nik < ActiveRecord::Base
       with(last_leaves_ids: last_leaves_ids).
       joins("JOIN last_leaves_ids AS lli ON niks.id = lli.id")
   end
+
+  def root
+    ancestors.find_by(parent_id: nil)
+  end
 end
