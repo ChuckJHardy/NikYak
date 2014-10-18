@@ -1,3 +1,34 @@
 <h3>nikyak</h3>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
 <%= link_to("Start a new story", new_nik_path) %>
+
+<br />
+<br />
+
+<h1>Listing niks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Limit</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @niks.each do |nik| %>
+      <tr>
+        <td><%= nik.title %></td>
+        <td><%= nik.body %></td>
+        <td><%= nik.limit %></td>
+        <td><%= nik.user.email %></td>
+        <td><%= link_to 'Show', nik %></td>
+        <td><%= link_to 'Edit', edit_nik_path(nik) %></td>
+        <td><%= link_to 'Destroy', nik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
