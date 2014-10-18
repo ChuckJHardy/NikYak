@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
   def index
-    @niks = Nik.all
+    @niks = Nik.roots
   end
 end

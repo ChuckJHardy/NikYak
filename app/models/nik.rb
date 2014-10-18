@@ -4,6 +4,12 @@ class Nik < ActiveRecord::Base
   belongs_to :user
   has_many :yaks
 
+  class << self
+    def without_root
+      where("parent_id IS NOT NULL")
+    end
+  end
+
   def last_leaves_ids
     Nik.
       select("niks.id").
@@ -22,5 +28,13 @@ class Nik < ActiveRecord::Base
 
   def root
     ancestors.find_by(parent_id: nil)
+  end
+
+  def first_branch
+    last_leaves.first.self_and_ancestors
+  end
+
+  def first_branch_without_root
+    first_branch.without_root
   end
 end
