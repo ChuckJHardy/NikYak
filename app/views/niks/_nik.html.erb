@@ -1,0 +1,7 @@
+<div class="story-container">
+  <% if nik.title %>
+    <h1><%= nik.title %></h1>
+  <% end %>
+  <h5 class="story-intro-info">Number of votes: <%= nik.votes %> Story ends on paragraph <%= nik.limit %></h5>
+  <p class="story-intro-paragraph"><%= nik.body %></p>
+</div>
