@@ -12,7 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.role
+//= require wiselinks
 //= require bootstrap-sprockets
 //= require social-share-button
+//= require_self
 //= require_tree .
+
+
+$(function () {
+  "use strict";
+  window.wiselinks = new Wiselinks();
+});
