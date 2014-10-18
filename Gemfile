@@ -28,6 +28,9 @@ gem "omniauth-google-oauth2"
 gem 'domp'
 gem 'wiselinks'
 gem 'role-rails'
+gem 'faye'
+gem 'thin', require: false
+gem 'sync'
 
 group :development do
   gem 'better_errors'
