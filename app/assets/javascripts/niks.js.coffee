@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $("body").on "ajax:success", ".upvote-container > a.upvote-link", (event, html) ->
+    target = $(event.currentTarget)
+    parent = target.parent()
+    parentContainer = parent.parent()
+
+    parent.remove()
+    parentContainer.append(html)

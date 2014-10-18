@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :niks
+  resources :niks do
+    patch :upvote, on: :member
+  end
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Upmin::Engine => '/admin'

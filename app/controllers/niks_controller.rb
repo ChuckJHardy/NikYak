@@ -1,5 +1,5 @@
 class NiksController < AuthorizedController
-  before_action :set_nik, only: [:show, :edit, :update, :destroy]
+  before_action :set_nik, only: [:show, :edit, :update, :destroy, :upvote]
   skip_before_action :authenticate, only: [:show, :index]
 
   def index
@@ -36,6 +36,11 @@ class NiksController < AuthorizedController
   def destroy
     @nik.destroy
     respond_with(@nik)
+  end
+
+  def upvote
+    @nik.upvote!
+    render partial: "upvote", locals: { nik: @nik }
   end
 
   private

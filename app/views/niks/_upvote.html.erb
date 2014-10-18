@@ -1,0 +1,4 @@
+<div class="upvote-container">
+  <%= nik.votes %>
+  <%= link_to "Upvote", upvote_nik_url(nik), data: { method: :patch, remote: true }, class: "upvote-link" %>
+</div>
