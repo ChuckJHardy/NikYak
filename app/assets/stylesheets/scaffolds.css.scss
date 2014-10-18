@@ -1,32 +1,16 @@
 body {
-  background-color: #fff;
+  background-color: #ddd;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
@@ -66,4 +50,68 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+//Theme
+//Typography
+h1, h2, h3 {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+h1, h2 {
+  text-shadow: 2px 3px 0px rgba(0,0,0,0.20);
+}
+
+//Buttons
+.btn-style {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn-main, .btn-main:visited {
+  background-color: #E97131;
+  border: 2px solid #FFFFFF;
+  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
+  color: white;  
+}
+
+.btn-main:hover {
+  text-decoration: none;
+  -moz-box-shadow:    0 0 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         0 0 0px 0px rgba(0,0,0,0.22);
+  color: white;  
+}
+
+.btn-main:active {
+  -moz-box-shadow:    inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+}
+
+.btn-second, .btn-second:visited {
+  background-color: white;
+  border: 2px solid #E97131;
+  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
+  color: #E97131;
+}
+
+.btn-second:hover {
+  text-decoration: none;
+  -moz-box-shadow:    0 0 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         0 0 0px 0px rgba(0,0,0,0.22);
+  color: #E97131;
+}
+
+.btn-second:active {
+  -moz-box-shadow:    inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+  box-shadow:         inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+}
+
+//forms 
+
+.nik_fields {
+  border: 0;
+  width: 100%;
 }

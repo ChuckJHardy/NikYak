@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <label><%= f.label :title %></label>
+    <%= f.text_field :title, :class => "nik_fields" %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <label><%= f.label :body %></label>
+    <%= f.text_area :body, :class => "nik_fields" %>
   </div>
-  <div class="field">
-    <%= f.label :limit %><br>
-    <%= f.number_field :limit %>
+  <div class="form-group">
+    <label><%= f.label :limit %></label>
+    <%= f.number_field :limit, :class => "nik_fields" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn-style btn-main" %>
   </div>
 <% end %>
