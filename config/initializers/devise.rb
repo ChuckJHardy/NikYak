@@ -274,15 +274,18 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook,
     ENV["OMNIAUTH_FACEBOOK_ID"],
-    ENV["OMNIAUTH_FACEBOOK_SECRET"]
+    ENV["OMNIAUTH_FACEBOOK_SECRET"],
+    { provider_ignores_state: true }
 
   config.omniauth :twitter,
     ENV["OMNIAUTH_TWITTER_ID"],
-    ENV["OMNIAUTH_TWITTER_SECRET"]
+    ENV["OMNIAUTH_TWITTER_SECRET"],
+    { provider_ignores_state: true }
 
   config.omniauth :google_oauth2,
     ENV["OMNIAUTH_GOOGLE_ID"],
-    ENV["OMNIAUTH_GOOGLE_SECRET"]
+    ENV["OMNIAUTH_GOOGLE_SECRET"],
+    { provider_ignores_state: true }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
