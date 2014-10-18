@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018043406) do
+ActiveRecord::Schema.define(version: 20141018102245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20141018043406) do
     t.datetime "updated_at"
   end
 
+  create_table "invited_users", force: true do |t|
+    t.integer  "users_id"
+    t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "niks", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -34,7 +41,8 @@ ActiveRecord::Schema.define(version: 20141018043406) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.ltree    "path"
-    t.integer  "votes",      default: 0
+    t.integer  "votes",        default: 0
+    t.boolean  "private_flag", default: false
   end
 
   add_index "niks", ["user_id"], name: "index_niks_on_user_id", using: :btree
