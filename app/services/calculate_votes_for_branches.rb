@@ -15,7 +15,10 @@ class CalculateVotesForBranches
         sum = leave.self_and_ancestors.sum(:votes)
         bw = BranchWeight.where(
           story_id: leave.root.id, path: leave.path
-        ).first_or_initialize(weight: sum)
+        ).first_or_initialize
+
+        bw.weight = sum
+
         bw.save
       end
     end
