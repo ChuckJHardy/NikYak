@@ -9,7 +9,7 @@ class NiksController < ApplicationController
 
   def show
     if user_signed_in?
-      @new_nik = Nik.new(user_id: current_user.id, parent: @nik.first_branch.last)
+      @new_nik = Nik.new(user_id: current_user.id, parent: @nik.potential_parent)
     end
     respond_with(@nik)
   end
