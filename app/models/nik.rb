@@ -32,6 +32,10 @@ class Nik < ActiveRecord::Base
         order("branch_weights.weight DESC")
     end
 
+    def least_popular_stories
+      top_stories.reorder("branch_weights.weight")
+    end
+
     def roots_without_replies
       with(
         filtered_roots: roots.
