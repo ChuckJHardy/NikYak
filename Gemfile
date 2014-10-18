@@ -26,6 +26,8 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-google-oauth2"
 gem 'domp'
+gem 'wiselinks'
+gem 'role-rails'
 
 group :development do
   gem 'better_errors'
