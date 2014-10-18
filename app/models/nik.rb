@@ -13,6 +13,16 @@ class Nik < ActiveRecord::Base
     def without_root
       where("parent_id IS NOT NULL")
     end
+
+    def roots_without_replies
+      with(
+        filtered_roots: roots.
+          select("niks.id").
+          joins("LEFT JOIN niks AS niks2 ON niks.id = niks2.parent_id").
+          having("COUNT(niks2.id) = 0").
+          group("niks.id")
+      ).joins("JOIN filtered_roots AS fr ON niks.id = fr.id")
+    end
   end
 
   def last_leaves_ids
