@@ -1,4 +1,30 @@
 //Mixins
+@mixin drop-shadow {
+  -moz-box-shadow:    3px 3px 0 0 rgba(0,0,0,0.22);
+  box-shadow:         3px 3px 0 0 rgba(0,0,0,0.22);
+}
+
+@mixin inner-shadow {
+  -moz-box-shadow:    inset 3px 3px 0 0 rgba(0,0,0,0.22);
+  box-shadow:         inset 3px 3px 0 0 rgba(0,0,0,0.22);
+}
+
+@mixin no-shadow {
+  -moz-box-shadow:    0 0 0 0 rgba(0,0,0,0.22), inset 0 0 0 0 rgba(0,0,0,0.22);
+  box-shadow:         0 0 0 0 rgba(0,0,0,0.22), inset 0 0 0 0 rgba(0,0,0,0.22);
+}
+
+@mixin text-dropshadow {
+  text-shadow: 2px 3px 0px rgba(0,0,0,0.20);
+}
+
+//Colors
+$main-color: #E97131;
+$secondary-color: #ffffff;
+$accent-color: #61B545;
+
+$button-border-color: #ffffff;
+
 
 body {
   background-color: #ddd;
@@ -61,7 +87,7 @@ h1, h2, h3 {
 }
 
 h1, h2 {
-  text-shadow: 2px 3px 0px rgba(0,0,0,0.20);
+  @include text-dropshadow;
 }
 
 //Buttons
@@ -72,52 +98,80 @@ h1, h2 {
 }
 
 .btn-main, .btn-main:visited {
-  background-color: #E97131;
-  border: 2px solid #FFFFFF;
-  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
+  @include drop-shadow;
+  background-color: $main-color;
+  border: 2px solid $button-border-color;
   color: white;  
 }
 
 .btn-main:hover {
+  @include no-shadow;
+  color: white;
   text-decoration: none;
-  -moz-box-shadow:    0 0 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         0 0 0px 0px rgba(0,0,0,0.22);
-  color: white;  
 }
 
 .btn-main:active {
-  -moz-box-shadow:    inset 3px 3px 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+  @include inner-shadow;
 }
 
 .btn-second, .btn-second:visited {
-  background-color: white;
-  border: 2px solid #E97131;
-  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
+  @include drop-shadow;
+  background-color: $secondary-color;
+  border: 2px solid $main-color;
   color: #E97131;
 }
 
 .btn-second:hover {
+  @include no-shadow;
   text-decoration: none;
-  -moz-box-shadow:    0 0 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         0 0 0px 0px rgba(0,0,0,0.22);
   color: #E97131;
 }
 
 .btn-second:active {
-  -moz-box-shadow:    inset 3px 3px 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         inset 3px 3px 0px 0px rgba(0,0,0,0.22);
+  @include inner-shadow;
 }
 
 //forms 
 
 .nik_fields {
+  @include inner-shadow;
   border: 0;
-  -moz-box-shadow:    3px 3px 0px 0px rgba(0,0,0,0.22);
-  box-shadow:         3px 3px 0px 0px rgba(0,0,0,0.22);
   font-size: 18px;
   padding: 20px;
   width: 100%;
+}
+
+//Structure
+.story-page-footer {
+  text-align: center;
+}
+
+//Story page
+.story-container {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 1px;
+}
+
+.story-container .story-intro-info {
+  display: none;
+}
+
+.story-container:first-child {
+  background-color: transparent;
+  padding: 0;
+  margin: 50px 0;
+}
+
+.story-container:first-child .story-intro-paragraph {
+  font-size: 18px;
+}
+
+.story-container:first-child .story-intro-info {
+  display: block;
+}
+
+//Hero
+.hero {
+  background-color: $accent-color;
 }
