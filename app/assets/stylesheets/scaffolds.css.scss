@@ -14,9 +14,18 @@
   box-shadow:         0 0 0 0 rgba(0,0,0,0.22), inset 0 0 0 0 rgba(0,0,0,0.22);
 }
 
-@mixin text-dropshadow {
-  text-shadow: 2px 3px 0px rgba(0,0,0,0.20);
+@mixin body-font {
+  font-family: Georgia, serif;
 }
+
+@mixin border-style {
+  border: 2px solid $main-color;
+}
+
+@mixin border-thin-style {
+  border: 1px solid $main-color; 
+}
+
 
 //Colors
 $main-color: #000000;
@@ -27,13 +36,15 @@ $main-color-inverse: #ffffff;
 
 $button-border-color: #ffffff;
 
+*:focus {
+  outline:0;
+}
 
 body {
-  background-color: #ddd;
-  color: #333;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  @include body-font;
+  background-color: #fff;
+  color: #333;  
+  font-size: 16px;
   line-height: normal;
 }
 
@@ -89,12 +100,7 @@ div {
 //Theme
 //Typography
 h1, h2, h3 {
-  font-family: 'Fredoka One', sans-serif;
   color: $main-color;
-}
-
-h1, h2 {
-  @include text-dropshadow;
 }
 
 //Buttons
@@ -113,8 +119,9 @@ h1, h2 {
 
 .btn-main:hover {
   @include no-shadow;
-  background-color: $accent-color;
-  color: $main-color-inverse;
+  background-color: $secondary-color;
+  border-color: $main-color;
+  color: $main-color;
   text-decoration: none;
 }
 
@@ -122,7 +129,7 @@ h1, h2 {
   @include inner-shadow;
 }
 
-.btn-second, .btn-second:visited {
+.btn-second, .btn-second:visited, .btn-second:active {
   @include drop-shadow;
   background-color: $secondary-color;
   border: 2px solid $main-color;
@@ -131,19 +138,21 @@ h1, h2 {
 
 .btn-second:hover {
   @include no-shadow;
-  background-color: $accent-color;
+  background-color: $main-color;
   color: $main-color-inverse;
   text-decoration: none;
 }
 
 .btn-second:active {
-  @include inner-shadow;
+  @include drop-shadow;
+  background-color: $secondary-color;
+  border: 2px solid $main-color;
+  color: $main-color;
 }
 
 //forms 
 .nik_fields {
-  @include inner-shadow;
-  border: 0;
+  @include border-thin-style;
   font-size: 18px;
   padding: 20px;
   width: 100%;
@@ -153,20 +162,33 @@ h1, h2 {
 .story-page-footer {
   background-color: $main-color;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 50px 0;
 }
 
-.story-page-footer-share {
-  color: white;
-  margin-bottom: 50px;
+//Story page
+@media (min-width: 768px){
+  .content-container {
+    @include border-style;
+    @include drop-shadow;
+    margin-top: 30px;
+    max-width: 730px;
+    padding: 50px;
+  }
 }
 
-//Story page
 .story-container {
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 1px;
+  border-bottom: 2px dotted #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.story-container h1 {
+  margin: 0 0 20px 0;
+}
+
+.story-container  p {
+  margin: 0;
 }
 
 .story-container .story-intro-info {
@@ -174,13 +196,13 @@ h1, h2 {
 }
 
 .story-container:first-child {
-  background-color: transparent;
   padding: 0;
-  margin: 50px 0;
 }
 
 .story-container:first-child .story-intro-paragraph {
-  font-size: 18px;
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .story-container:first-child .story-intro-info {
@@ -189,14 +211,13 @@ h1, h2 {
 
 //Hero
 .hero {
-  background-color: #333333;
-  color: $main-color-inverse;
+  border-bottom: 2px solid $main-color;
+  margin-bottom: 20px;
   text-align: center;
-  padding: 100px 0;
+  padding: 75px 0;
 }
 
 .hero-title {
-  color: $main-color-inverse;
   font-size: 48px;
   margin: 0 0 30px 0;
 }
@@ -213,6 +234,7 @@ h1, h2 {
 //Story thumbnail
 .story-thumbnail {
   @include drop-shadow;
+  @include border-style;
   background-color: white;
   height: 200px;
   padding: 20px;
