@@ -13,8 +13,7 @@
 
   <%= f.hidden_field :parent_id %>
   <div class="field">
-    <h3>What Now?</h3>
-    <%= f.text_area :body, :class => "nik_fields" %>
+    <%= f.text_area :body, :class => "nik_fields", :placeholder => "What Now?", :autofocus => true %>
   </div>
-  <%= f.submit :class => "btn-style btn-main" %>
+  <%= f.submit :class => "btn-style btn-second", :value => "Add yak" %>
 <% end %>

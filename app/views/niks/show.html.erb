@@ -1,8 +1,5 @@
 <div class="container content-container">
   <%= render @nik.first_branch %>
-</div>
-
-<div class="container sign-up-container">
   <% if user_signed_in? %>
     <% if user_can_add_yak?(@new_nik.parent) %>
       <%= render 'form_yak', nik: @new_nik %>
@@ -14,4 +11,4 @@
     <%= link_to "Sign in with Facebook", omniauth_url(:facebook), :class => "btn-style btn-main" %>
     <%= link_to "Sign in with Twitter", omniauth_url(:twitter), :class => "btn-style btn-main" %>
   <% end %>
-</div>  
+</div>
