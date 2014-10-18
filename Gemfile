@@ -17,6 +17,9 @@ gem 'pundit'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'upmin-admin'
+
+gem 'ltree_hierarchy', github: 'Leadformance/ltree_hierarchy'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
