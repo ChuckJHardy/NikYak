@@ -20,5 +20,55 @@
   <%= @nik.user.email %>
 </p>
 
+<h1>Listing yaks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Nik</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nik.yaks.each do |yak| %>
+      <tr>
+        <td><%= yak.body %></td>
+        <td><%= yak.nik %></td>
+        <td><%= yak.user.email %></td>
+        <td><%= link_to 'Show', nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Edit', edit_nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Destroy', nik_yak_path(@nik, yak), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= form_for([@nik, @yak]) do |f| %>
+  <% if @yak.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yak.errors.count, "error") %> prohibited this yak from being saved:</h2>
+
+      <ul>
+      <% @yak.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="body">What Now?</label>:<br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_nik_path(@nik) %> |
 <%= link_to 'Back', niks_path %>

@@ -15,15 +15,11 @@
       <tr>
         <td><%= yak.body %></td>
         <td><%= yak.nik %></td>
-        <td><%= yak.user %></td>
-        <td><%= link_to 'Show', yak %></td>
-        <td><%= link_to 'Edit', edit_yak_path(yak) %></td>
-        <td><%= link_to 'Destroy', yak, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= yak.user.email %></td>
+        <td><%= link_to 'Show', nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Edit', edit_nik_yak_path(@nik, yak) %></td>
+        <td><%= link_to 'Destroy', nik_yak_path(@nik, yak), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Yak', new_yak_path %>

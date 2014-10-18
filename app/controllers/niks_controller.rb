@@ -8,6 +8,7 @@ class NiksController < ApplicationController
   end
 
   def show
+    @yak = Yak.new
     respond_with(@nik)
   end
 

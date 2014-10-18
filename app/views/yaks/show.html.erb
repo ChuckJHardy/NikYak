@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Your Story</h3>
+
 <p>
   <strong>Body:</strong>
   <%= @yak.body %>
@@ -7,13 +9,15 @@
 
 <p>
   <strong>Nik:</strong>
-  <%= @yak.nik %>
+  <%= @nik.title %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @yak.user %>
+  <%= @yak.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_yak_path(@yak) %> |
-<%= link_to 'Back', yaks_path %>
+<h1>Im a Read Button</h1>
+
+<%= link_to 'Edit', edit_nik_yak_path(@nik, @yak) %> |
+<%= link_to 'Back', nik_yaks_path(@nik) %>
