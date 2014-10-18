@@ -2,7 +2,6 @@ class Nik < ActiveRecord::Base
   has_ltree_hierarchy
 
   belongs_to :user
-  has_many :yaks
 
   class << self
     def without_root
@@ -31,7 +30,7 @@ class Nik < ActiveRecord::Base
   end
 
   def first_branch
-    last_leaves.first.self_and_ancestors
+    last_leaves.first.try(:self_and_ancestors) || self_and_ancestors
   end
 
   def first_branch_without_root

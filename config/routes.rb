@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :niks do
-    resources :yaks
-  end
+  resources :niks
+
+  resources :yaks
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Upmin::Engine => '/admin'

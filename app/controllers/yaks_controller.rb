@@ -45,6 +45,6 @@ class YaksController < ApplicationController
     end
 
     def yak_params
-      params.require(:yak).permit(:body, :user_id)
+      params.require(:yak).permit(:body, :user_id, :parent_id)
     end
 end
