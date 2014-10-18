@@ -1,12 +1,25 @@
 <div class="hero">
-  <h2>Tandem writing + the internet</h2>
-  <p>Create stories with friends and strangers. Go from writing about a princess finding her prince charming, and end it with a zombie apocalypse. Anything goes.</p>
-  <%= link_to("Start a new story", new_nik_path, :class => "btn-style btn-main") %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2 class="hero-title">Tandem writing + the internet</h2>
+        <p class="hero-subtitle">Create stories with friends and strangers. Go from writing about a princess finding her prince charming, and end it with a zombie apocalypse. <br>Anything goes.</p>
+        <%= link_to("Start a new story", new_nik_path, :class => "btn-style btn-main") %>
+      </div>
+    </div>
+  </div>  
 </div>
 
-<h2>Recent stories</h2>
-
-<% @niks.each do |nik| %>
-  <%= nik.title %>
-  <%= link_to 'Read story', nik, :class => "btn-style btn-second" %>
-<% end %>
+<div class="container">
+  <h2>Recent stories</h2>
+  <div class="row">
+    <% @niks.each do |nik| %>
+      <div class="col-sm-3">
+        <div class="story-thumbnail">
+          <h2 class="story-thumbnail-title"><%= nik.title %></h2>
+          <%= link_to 'Read story', nik, :class => "btn-style btn-second" %>
+        </div>        
+      </div>
+    <% end %>
+  </div>
+</div>

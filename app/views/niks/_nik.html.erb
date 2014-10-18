@@ -4,4 +4,6 @@
   <% end %>
   <h5 class="story-intro-info">Number of votes: <%= nik.votes %> Story ends on paragraph <%= nik.limit %></h5>
   <p class="story-intro-paragraph"><%= nik.body %></p>
+  <%= render 'yak_sibling', nik: nik.left_sibling, point: "left" %>
+  <%= render 'yak_sibling', nik: nik.right_sibling, point: "right" %>
 </div>

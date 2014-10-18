@@ -1,0 +1,5 @@
+<% if nik %>
+  <div class="<%=point%>">
+    <%= link_to "Go #{point}", nik_path(nik, anchor: "paragraph-#{nik.id}") %>
+  </div>
+<% end %>
