@@ -141,7 +141,6 @@ h1, h2 {
 }
 
 //forms 
-
 .nik_fields {
   @include inner-shadow;
   border: 0;
@@ -150,9 +149,17 @@ h1, h2 {
   width: 100%;
 }
 
-//Structure
+//Footer
 .story-page-footer {
+  background-color: $main-color;
   text-align: center;
+  margin-top: 50px;
+  padding: 50px 0;
+}
+
+.story-page-footer-share {
+  color: white;
+  margin-bottom: 50px;
 }
 
 //Story page

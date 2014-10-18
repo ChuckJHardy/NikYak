@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
   def self.create_from_omniauth(params)
     email = params['info']['email'] || "#{params['uid']}@nikyak.com"
+    name  = if params['info']['first_name']
+      "#{params['info']['first_name']} #{params['info']['last_name']}"
+    else
+      params['info']['name']
+    end
+
     attributes = {
       email: email,
+      name: name,
       password: Devise.friendly_token
     }
 
@@ -21,6 +28,8 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, :invitable, :database_authenticatable, :registerable, :confirmable,
+  devise :omniauthable, :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :name, presence: true
 end
