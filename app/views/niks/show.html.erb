@@ -20,5 +20,7 @@
   <%= @nik.user.email %>
 </p>
 
+<%= render 'form', nik: @new_nik %>
+
 <%= link_to 'Edit', edit_nik_path(@nik) %> |
 <%= link_to 'Back', niks_path %>

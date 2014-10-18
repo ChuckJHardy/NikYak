@@ -1,16 +1,17 @@
-<%= form_for(@nik) do |f| %>
-  <% if @nik.errors.any? %>
+<%= form_for(nik) do |f| %>
+  <% if nik.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@nik.errors.count, "error") %> prohibited this nik from being saved:</h2>
+      <h2><%= pluralize(nik.errors.count, "error") %> prohibited this nik from being saved:</h2>
 
       <ul>
-      <% @nik.errors.full_messages.each do |message| %>
+      <% nik.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+  <%= f.hidden_field :parent_id %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>

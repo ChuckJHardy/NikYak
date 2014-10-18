@@ -8,6 +8,7 @@ class NiksController < ApplicationController
   end
 
   def show
+    @new_nik = Nik.new(user_id: current_user.id, parent: @nik)
     respond_with(@nik)
   end
 
@@ -41,6 +42,6 @@ class NiksController < ApplicationController
     end
 
     def nik_params
-      params.require(:nik).permit(:title, :body, :limit)
+      params.require(:nik).permit(:title, :body, :limit, :parent_id)
     end
 end
