@@ -17,8 +17,8 @@ gem 'pundit'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'upmin-admin'
-
 gem 'ltree_hierarchy', github: 'Leadformance/ltree_hierarchy'
+gem 'postgres_ext'
 
 group :development do
   gem 'better_errors'
