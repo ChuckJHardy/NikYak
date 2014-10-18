@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/InsertCoffee/social-share-button.git
+  revision: a4c7c1b6bee3bec2f3c1d8a97f0fb532d9339d70
+  specs:
+    social-share-button (0.1.9)
+      coffee-rails
+      sass-rails
+
+GIT
   remote: git://github.com/Leadformance/ltree_hierarchy.git
   revision: b0b0231743cf099b3ce80ab00c916cfab04eb6ff
   specs:
@@ -283,6 +291,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  social-share-button!
   spring
   turbolinks
   uglifier (>= 1.3.0)
