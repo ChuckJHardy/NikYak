@@ -354,7 +354,15 @@ h1 {
 }
 
 .hero .btn-main {
+  background-color: #E7A53C;
+  border-color: #E7A53C;
   font-size: 20px;
+}
+
+.hero .btn-main:hover {
+  background-color: transparent;
+  border-color: #E7A53C;
+  color: black;
 }
 
 //Homepage
