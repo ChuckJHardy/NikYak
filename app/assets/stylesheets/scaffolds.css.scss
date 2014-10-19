@@ -279,17 +279,24 @@ h1 {
 
 .story-container {
   border-bottom: 2px dotted #ddd;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
 }
 
 .story-container h1 {
   text-align: center;
 }
 
-.story-container p {
+.story-container .story-intro-paragraph {
+  font-size: 18px;
   line-height: 25px;
   margin: 0;
+  padding: 15px;
+}
+
+.story-intro-paragraph a {
+  color: #A9A9A9;
+  font-size: 13px;
+  font-style: oblique;
+  text-decoration: underline;
 }
 
 .story-container .story-intro-info {
@@ -310,6 +317,8 @@ h1 {
   line-height: 38px;
   margin-bottom: 20px;
   margin-top: 30px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .story-container:first-child .story-intro-info {
@@ -373,6 +382,19 @@ h1 {
   background-color: transparent;
   border-color: #E7A53C;
   color: black;
+}
+
+.selected {
+  background-color: #F5F5DC;
+  padding: 15px;
+}
+
+form.new_nik {
+  padding: 15px 0;
+}
+
+form.new_nik .nik_fields {
+  padding: 0 15px;
 }
 
 //Homepage
