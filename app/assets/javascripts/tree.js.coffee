@@ -55,7 +55,14 @@ class @Tree
         else
           "translate(" + 0 + "," + d.y + ")"
       )
-      .on("click", (d) -> window.location = d.url )
+      .on("click", (d) ->
+        window.location = d.url
+
+        $("html, body").animate
+          scrollTop: $("#" + d.id).offset().top
+        , 500
+        return
+      )
 
     nodeEnter.append("circle")
       .attr("r", 10)

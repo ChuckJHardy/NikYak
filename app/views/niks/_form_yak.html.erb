@@ -11,7 +11,7 @@
   <%#   </div> %>
   <%# <% end %1> %>
 
-  <%= f.hidden_field :parent_id %>
+  <%= f.hidden_field :parent_id, value: params[:id] %>
   <div class="field">
     <%= f.text_area :body, :class => "nik_fields", :placeholder => random_change_link_what_now, :autofocus => true, :required => true %>
   </div>
