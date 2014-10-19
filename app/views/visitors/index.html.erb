@@ -1,9 +1,9 @@
 <div class="hero">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2 class="hero-title">Tandem writing + the interwebs</h2>
-        <p class="hero-subtitle">Create a story and pass it on to a friend. Go from writing about a love story, and end it with a zombie apocalypse. Anything goes.</p>
+      <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="hero-title">Tandem writing <br>+<br> the interwebs</h2>
+        <p class="hero-subtitle">You may start by creating a love story, and your friend might turn it into a tale of zombie apocalypse.</p>
         <%= link_to("Create a story today", new_nik_path, :class => "btn-style btn-main") %>
       </div>
     </div>
@@ -11,6 +11,7 @@
 </div>
 
 <div class="container">
+  <h2 class="homepage-section-label">Fresh out of creativity? Here are some random stories</h2>
   <div class="row">
     <% @niks.shuffle.first(2).each do |nik| %>
       <div class="col-sm-6">

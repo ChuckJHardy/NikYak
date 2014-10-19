@@ -318,7 +318,10 @@ h1, h2, h3 {
 
 //Homepage
 .homepage-section-label {
+  @include border-bottom-style;
   margin: 0 0 20px 0;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 //Story thumbnail
