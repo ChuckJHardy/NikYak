@@ -36,7 +36,9 @@ class NiksController < AuthorizedController
     @nik = Nik.new nik_params.merge(user_id: current_user.id)
     @nik.save
 
-    NotifyMailer.nik_added_email(@nik).deliver
+    if Rails.env.production?
+      NotifyMailer.nik_added_email(@nik).deliver
+    end
 
     respond_with(@nik)
   end
