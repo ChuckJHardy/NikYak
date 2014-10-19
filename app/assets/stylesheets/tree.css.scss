@@ -4,26 +4,22 @@
   stroke-width: 2px;
   pointer-events: all;
 
-  .nik {
+  &.nik {
     // just a regular node
   }
 
-  .in-path {
+  &.in-path {
     // this one is a part of current branch
   }
 
-  .current {
-    // the one that's id is diplayed in address bar
+  &.current {
+    fill: #E7A53C;
   }
-}
 
-.node circle:hover {
-  fill: #fdf;
-  cursor: pointer;
-}
-
-.node circle.current {
-  fill: #E7A53C;
+  &:hover{
+    fill: #fdf;
+    cursor: pointer;
+  }
 }
 
 .node text { font: 12px sans-serif; }
@@ -33,7 +29,7 @@
   stroke: #ccc;
   stroke-width: 2px;
 
-  .current-link {
+  &.current-link {
     // the link that connects current branch
   }
 }
