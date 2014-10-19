@@ -1,21 +1,29 @@
 class @Tree
+  margin:
+    top: 40,
+    right: 120,
+    bottom: 20,
+    left: 120
+
+  width: 960
+  height: 500
+
   constructor: (@data) ->
-    @margin = {top: 40, right: 120, bottom: 20, left: 120}
-    @width = 960 - @margin.right - @margin.left
-    @height = 500 - @margin.top - @margin.bottom
+    @tree_width = @width - @margin.right - @margin.left
+    @tree_height = @height - @margin.top - @margin.bottom
 
     @i = 0
 
     @tree = d3.layout.tree()
       .separation( (a, b) -> 2 )
-      .size([@height, @width])
+      .size([@tree_height, @tree_width])
 
     @diagonal = d3.svg.diagonal()
       .projection( (d) -> [d.x, d.y])
 
     @svg = d3.select("body").append("svg")
-      .attr("width", @width + @margin.right + @margin.left)
-      .attr("height", @height + @margin.top + @margin.bottom)
+      .attr("width", @width)
+      .attr("height", @height)
       .append("g")
       .attr("transform", "translate(" + @margin.left + "," + @margin.top + ")")
 
