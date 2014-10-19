@@ -252,7 +252,6 @@ h1 {
 //Story page
 @media (min-width: 768px){
   .content-container {    
-    margin-top: 100px;
     max-width: 730px; 
     padding: 0;   
   }
@@ -285,7 +284,7 @@ h1 {
 }
 
 .story-container h1 {
-  margin: 0 0 20px 0;
+  text-align: center;
 }
 
 .story-container p {
@@ -315,6 +314,17 @@ h1 {
 
 .story-container:first-child .story-intro-info {
   display: block;
+  text-align: center;
+}
+
+.story-intro-actions {
+  text-align: center;
+}
+
+.story-intro-actions .btn-second {
+  font-size: 13px;
+  margin-top: 15px;
+  padding: 5px 10px;
 }
 
 //Hero

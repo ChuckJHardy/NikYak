@@ -1,16 +1,17 @@
 <div class="story-container">
   <% if nik.title %>
     <h1><%= nik.title %></h1>
-    <span id="zoom"><a href="#">View this Stories NikYak</a></span>
+    <div class="story-intro-info">
+      <%= nik.descendents.count %> Replies
+      <span class="vote-container"><%= nik.votes %> Votes</span>
+      <%# Story ends on paragraph <%= nik.limit %1> %>
+    </div>
+    <div class="story-intro-actions">
+      <%= link_to random_change_link_vote, upvote_nik_url(nik), data: { method: :patch, remote: true }, class: "upvote-link btn-style btn-second" %>
+      <a href="#" id="zoom" class="btn-style btn-second">View this story's NikYak</a>
+    </div>
     <%#= link_to "Story tree", tree_nik_path(@nik), class: "tree-link" %>
   <% end %>
-  <h5 class="story-intro-info">
-    <div class="replies-container">
-      <%= nik.descendents.count %> Replies
-    </div>
-    <%= render partial: "upvote", locals: { nik: nik } %>
-    <%# Story ends on paragraph <%= nik.limit %1> %>
-  </h5>
   <p class="story-intro-paragraph"><%= nik.body %></p>
   <%# <%= render 'yak_sibling', nik: nik.left_sibling, point: "left", display: random_change_link_left %1> %>
   <%# <%= render 'yak_sibling', nik: nik.right_sibling, point: "right", display: random_change_link_right %1> %>

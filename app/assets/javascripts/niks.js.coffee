@@ -1,11 +1,6 @@
 $ ->
-  $("body").on "ajax:success", ".upvote-container > a.upvote-link", (event, html) ->
-    target = $(event.currentTarget)
-    parent = target.parent()
-    parentContainer = parent.parent()
-
-    parent.remove()
-    parentContainer.append(html)
+  $("body").on "ajax:success", ".story-intro-actions > a.upvote-link", (event, html) ->
+    $('.vote-container').text(html)
 
   $("#zoom").on "click", (event) ->
     event.preventDefault()
