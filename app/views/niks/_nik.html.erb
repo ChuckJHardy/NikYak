@@ -4,7 +4,7 @@
   <% end %>
   <h5 class="story-intro-info">
     <%= render partial: "upvote", locals: { nik: nik } %>
-    Story ends on paragraph <%= nik.limit %>
+    <%# Story ends on paragraph <%= nik.limit %1> %>
   </h5>
   <p class="story-intro-paragraph"><%= nik.body %></p>
   <%= render 'yak_sibling', nik: nik.left_sibling, point: "left" %>

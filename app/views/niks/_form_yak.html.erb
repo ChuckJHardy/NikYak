@@ -1,15 +1,15 @@
 <%= form_for(nik) do |f| %>
-  <% if nik.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(nik.errors.count, "error") %> prohibited this yak from being saved:</h2>
+  <%# <% if nik.errors.any? %1> %>
+  <%#   <div id="error_explanation"> %>
+  <%#     <h2><%= pluralize(nik.errors.count, "error") %1> prohibited this yak from being saved:</h2> %>
 
-      <ul>
-        <% nik.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%#     <ul> %>
+  <%#       <% nik.errors.full_messages.each do |message| %1> %>
+  <%#         <li><%= message %1></li> %>
+  <%#       <% end %1> %>
+  <%#     </ul> %>
+  <%#   </div> %>
+  <%# <% end %1> %>
 
   <%= f.hidden_field :parent_id %>
   <div class="field">

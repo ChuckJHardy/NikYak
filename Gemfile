@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+
 ruby '2.1.2'
+
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -28,6 +30,7 @@ gem "omniauth-google-oauth2"
 gem 'domp'
 gem 'wiselinks'
 gem 'role-rails'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'better_errors'
@@ -37,6 +40,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
@@ -44,9 +48,11 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
 end
+
 group :production do
   gem 'rails_12factor'
 end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'

@@ -1,15 +1,15 @@
 <%= form_for(nik) do |f| %>
-  <% if nik.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(nik.errors.count, "error") %> prohibited this nik from being saved:</h2>
+  <%# <% if nik.errors.any? %1> %>
+  <%#   <div id="error_explanation"> %>
+  <%#     <h2><%= pluralize(nik.errors.count, "error") %1> Oops</h2> %>
 
-      <ul>
-      <% nik.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%#     <ul> %>
+  <%#     <% nik.errors.full_messages.each do |message| %1> %>
+  <%#       <li><%= message %1></li> %>
+  <%#     <% end %1> %>
+  <%#     </ul> %>
+  <%#   </div> %>
+  <%# <% end %1> %>
 
   <%= f.hidden_field :parent_id %>
   <div class="form-group">
@@ -21,11 +21,11 @@
     <div class="field-explaination">Write an introduction for your story, but just a paragraph. Other people will contribute based on this introduction.</div>
     <%= f.text_area :body, :class => "nik_fields_new" %>
   </div>
-  <div class="form-group">
-    <label>Submission limit</label>
-    <div class="field-explaination">No one wants a story that never ends. Choose how many paragraphs you want this story to have. We'll choose a random number if it's empty.</div>
-    <%= f.number_field :limit, :class => "nik_fields_new" %>
-  </div>
+  <%# <div class="form-group"> %>
+  <%#   <label>Submission limit</label> %>
+  <%#   <div class="field-explaination">No one wants a story that never ends. Choose how many paragraphs you want this story to have. We'll choose a random number if it's empty.</div> %>
+  <%#   <%= f.number_field :limit, :class => "nik_fields_new" %1> %>
+  <%# </div> %>
   <div class="actions">
     <%= f.submit :class => "btn-style btn-main", :value => "Create story" %>
     <%= link_to 'Back', niks_path, :class => "btn-style btn-second pull-right" %>
