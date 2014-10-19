@@ -11,7 +11,7 @@ class NiksController < AuthorizedController
   end
 
   def index
-    @niks = Nik.roots
+    @niks = Nik.roots.order("created_at DESC")
     respond_with(@niks)
   end
 
@@ -35,6 +35,9 @@ class NiksController < AuthorizedController
   def create
     @nik = Nik.new nik_params.merge(user_id: current_user.id)
     @nik.save
+
+    NotifyMailer.nik_added_email(@nik).deliver
+
     respond_with(@nik)
   end
 
