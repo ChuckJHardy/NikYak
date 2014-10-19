@@ -6,3 +6,10 @@ $ ->
 
     parent.remove()
     parentContainer.append(html)
+
+  $("#zoom").on "click", (event) ->
+    event.preventDefault()
+    $("html, body").animate
+      scrollTop: $(".tree-outer-container").offset().top
+    , 500
+    return
