@@ -1,6 +1,7 @@
 <div class="story-container">
   <% if nik.title %>
     <h1><%= nik.title %></h1>
+    <%= link_to "Story tree", tree_nik_path(@nik), class: "tree-link" %>
   <% end %>
   <h5 class="story-intro-info">
     <%= render partial: "upvote", locals: { nik: nik } %>
