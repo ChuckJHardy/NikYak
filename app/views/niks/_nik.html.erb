@@ -12,7 +12,7 @@
     </div>
     <%#= link_to "Story tree", tree_nik_path(@nik), class: "tree-link" %>
   <% end %>
-  <p class="story-intro-paragraph <%= 'selected' if nik.id.to_s == params[:id] %>" id="<%= nik.id %>"><%= nik.body %> <%= link_to(random_change_link_start, nik_path(nik.id)) unless nik.title %></p>
+  <p class="story-intro-paragraph <%= 'selected' if nik.id.to_s == params[:id] && !nik.title %>" id="<%= nik.id %>"><%= nik.body %> <%= link_to(random_change_link_start, nik_path(nik.id)) unless nik.title %></p>
   <%# <%= render 'yak_sibling', nik: nik.left_sibling, point: "left", display: random_change_link_left %1> %>
   <%# <%= render 'yak_sibling', nik: nik.right_sibling, point: "right", display: random_change_link_right %1> %>
 </div>
