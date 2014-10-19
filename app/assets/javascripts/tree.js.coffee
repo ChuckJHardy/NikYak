@@ -18,7 +18,12 @@ class @Tree
       .size([@tree_height, @width()])
 
     @diagonal = d3.svg.diagonal()
-      .projection( (d) -> [d.x, d.y])
+      .projection( (d) =>
+        if @root.branches > 1
+          [ d.x, d.y ]
+        else
+          [ 0, d.y ]
+      )
 
     @svg = d3.select(@parentContainer).append("svg")
       .attr("id", @treeSvgId)
@@ -45,7 +50,7 @@ class @Tree
     nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .attr("transform", (d) =>
-        if @root.branches > 0
+        if @root.branches > 1
           "translate(" + d.x + "," + d.y + ")"
         else
           "translate(" + 0 + "," + d.y + ")"
@@ -65,6 +70,7 @@ class @Tree
 
     link = @svg.selectAll("path.link")
       .data(links, (d) -> d.target.id)
+
 
     link.enter().insert("path", "g")
       .attr("class", "link")
