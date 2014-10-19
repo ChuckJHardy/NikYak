@@ -1,9 +1,13 @@
 class NiksController < AuthorizedController
   before_action :set_nik, only: [:show, :edit, :update, :destroy, :upvote]
-  skip_before_action :authenticate, only: [:show, :index]
+  skip_before_action :authenticate, only: [:show, :index, :guest]
+  
+  def guest
+    guest_user
+    redirect_to new_nik_path
+  end
 
   def index
-    guest_user if params[:guest]
     @niks = Nik.roots
     respond_with(@niks)
   end

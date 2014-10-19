@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     patch :upvote, on: :member
   end
 
+  get "/guest", to: "niks#guest"
+
   authenticate :user, lambda { |u| u.admin? } do
     mount Upmin::Engine => '/admin'
   end
