@@ -10,4 +10,9 @@
     <h3>This story isn't finished yet. What now?</h3>
     <%= link_to "Sign in", new_user_session_path(nik_id: @nik.id), :class => "btn-style btn-main" %>
   <% end %>
+  
+  <div class="share-footer">
+    <h4>Share this story via</h4>
+    <%= social_share_button_tag(@nik.title, via: 'NikYakApp', url: nik_url(@nik), image: asset_path("icon.png")) %>
+  </div>
 </div>
