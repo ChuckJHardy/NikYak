@@ -33,7 +33,7 @@ class @Tree
       .attr("id", @treeSvgContainerId)
 
     @tip = d3.tip().html( (d) ->
-      "<span>" + d.body + "</span>"
+      "<span class='tree-comment'>" + d.body + "</span>"
     )
 
     @svg.call(@tip)
