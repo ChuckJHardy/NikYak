@@ -11,15 +11,13 @@
 </div>
 
 <div class="container">
-  <h2 class="homepage-section-label">Recent stories</h2>
   <div class="row">
-    <% @niks.each do |nik| %>
-      <div class="col-sm-3">
-        <div class="story-thumbnail">
+    <% @niks.shuffle.first(2).each do |nik| %>
+      <div class="col-sm-6">
           <h2 class="story-thumbnail-title"><%= link_to nik.title, nik %></h2>
-          <%= link_to 'Read story', nik, :class => "btn-style btn-second" %>
+          <p><%= link_to nik.body, nik %></p>
+          <h3>...</h3>
         </div>        
-      </div>
     <% end %>
   </div>
 </div>
