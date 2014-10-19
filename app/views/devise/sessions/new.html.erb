@@ -1,8 +1,8 @@
 <div class="authform sign-up">
-  <%= link_to "Sign in with Facebook", omniauth_url(:facebook), :class => "btn-style btn-main" %>
-  <%= link_to "Sign in with Twitter", omniauth_url(:twitter), :class => "btn-style btn-main" %>
-  <%= link_to "Sign up", new_registration_path(resource_name), :class => "btn-style btn-main" %>
-  <%= link_to "Guest Account", niks_path(guest: true), :class => "btn-style btn-main" %>
+  <%= link_to "Just let me tell a story", niks_path(guest: true), :class => "btn-style btn-main" %>
+  <%= link_to "Sign in with Book Face", omniauth_url(:facebook), :class => "btn-style btn-second" %>
+  <%= link_to "Sign in with Twattah", omniauth_url(:twitter), :class => "btn-style btn-second" %>
+  <%= link_to "I hate those social things", new_registration_path(resource_name), :class => "btn-style btn-second" %>
 
   <%# <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %1> %>
   <%#   <h3>Sign in</h3> %>
