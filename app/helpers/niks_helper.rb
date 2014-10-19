@@ -33,14 +33,4 @@ module NiksHelper
       "What direction are you going to take this in?"
     ].shuffle.first
   end
-
-  def random_change_link_start
-    [
-      "Start from here.",
-      "Let's change the way this is going.",
-      "I can do better than that.",
-      "Really, let me try.",
-      "Let's change it up a bit."
-    ].shuffle.first
-  end
 end
