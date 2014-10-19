@@ -32,6 +32,12 @@ class @Tree
       .append("g")
       .attr("id", @treeSvgContainerId)
 
+    @tip = d3.tip().html( (d) ->
+      "<span>" + d.body + "</span>"
+    )
+
+    @svg.call(@tip)
+
     @root = @data[0]
 
     @update(@root)
@@ -49,6 +55,7 @@ class @Tree
 
     nodeEnter = node.enter().append("g")
       .attr("class", "node")
+      .attr("id", (d) -> "nik-#{d.id}")
       .attr("transform", (d) =>
         if @root.branches > 1
           "translate(" + d.x + "," + d.y + ")"
@@ -63,6 +70,8 @@ class @Tree
         , 500
         return
       )
+      .on('mouseover', @tip.show)
+      .on('mouseout', @tip.hide)
 
     nodeEnter.append("circle")
       .attr("r", 10)
