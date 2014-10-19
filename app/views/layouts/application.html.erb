@@ -10,9 +10,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render 'layouts/navigation' %>
-    <%#= render 'layouts/messages' %>
-    <%= yield %>
+    <% if params[:screenshot] %>
+      <%= render 'layouts/screenshot' %>
+    <% else %>
+      <%= render 'layouts/navigation' %>
+      <%#= render 'layouts/messages' %>
+      <%= yield %>
+    <% end %>
 
     <% if Rails.env.production? %>
       <script>
