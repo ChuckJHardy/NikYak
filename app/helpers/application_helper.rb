@@ -17,7 +17,7 @@ module ApplicationHelper
   def render_tree(nik, container = "body")
     (<<-JS
       <script type="text/javascript">
-        new Tree(#{TreeStructure.structure(nik).to_json});
+        new Tree(#{TreeStructure.structure(nik).to_json}, '#{container}');
       </script>
     JS
     ).html_safe
