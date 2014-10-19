@@ -30,6 +30,10 @@
   border-bottom: 2px dotted #ddd;
 }
 
+@mixin border-top-style {
+  border-top: 2px dotted #ddd;
+}
+
 
 //Colors
 $main-color: #000000;
@@ -106,6 +110,10 @@ div {
 //Typography
 h1, h2, h3 {
   color: $main-color;
+}
+
+h1 {
+  margin-top: 50px;
 }
 
 //Buttons
@@ -325,9 +333,16 @@ h1, h2, h3 {
 
 //Homepage
 .homepage-section-label {
-  @include border-bottom-style;
+  @include border-top-style;
   margin: 0 0 20px 0;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.read-all {
+  @include border-top-style;
+  margin-top: 50px;
+  padding-top: 20px;
   text-align: center;
 }
 
