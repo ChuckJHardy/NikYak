@@ -18,7 +18,12 @@
 
   <!-- load the d3.js library -->
   <script src="http://d3js.org/d3.v3.min.js"></script>
-
-  <%= render_tree(@nik, ".content-container") %>
+  
 </div>
+<div class="tree-outer-container">
+  <h3>Look at what we create together</h3>
+  <div class="tree-container"></div>
+</div>
+
+<%= render_tree(@nik, ".tree-container") %>
 
