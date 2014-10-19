@@ -3,6 +3,7 @@ class NiksController < AuthorizedController
   skip_before_action :authenticate, only: [:show, :index]
 
   def index
+    guest_user if params[:guest]
     @niks = Nik.roots
     respond_with(@niks)
   end
@@ -44,11 +45,26 @@ class NiksController < AuthorizedController
   end
 
   private
-    def set_nik
-      @nik = Nik.find(params[:id])
-    end
 
-    def nik_params
-      params.require(:nik).permit(:title, :body, :limit, :parent_id)
-    end
+  def set_nik
+    @nik = Nik.find(params[:id])
+  end
+
+  def nik_params
+    params.require(:nik).permit(:title, :body, :limit, :parent_id)
+  end
+
+  def guest_user(with_retry = true)
+    sign_in User.find(session[:guest_user_id] ||= create_guest_user.id)
+  rescue ActiveRecord::RecordNotFound
+    session[:guest_user_id] = nil
+    guest_user if with_retry
+  end
+
+  def create_guest_user
+    u = User.create(name: "guest", email: "guest_#{Time.now.to_i}#{rand(100)}@nikyak.com")
+    u.save!(validate: false)
+    session[:guest_user_id] = u.id
+    u
+  end
 end
