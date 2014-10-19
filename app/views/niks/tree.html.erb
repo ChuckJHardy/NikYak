@@ -2,7 +2,7 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script type="text/javascript">
-  var treeData = JSON.parse('<%= @tree.to_json.html_safe %>');
+  var treeData = <%= @tree.to_json.html_safe %>;
 
   var tree = new Tree(treeData);
 </script>
