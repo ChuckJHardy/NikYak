@@ -7,8 +7,8 @@
       <%# Story ends on paragraph <%= nik.limit %1> %>
     </div>
     <div class="story-intro-actions">
-      <%= link_to random_change_link_vote, upvote_nik_url(nik), data: { method: :patch, remote: true }, class: "upvote-link btn-style btn-second" %>
-      <a href="#" id="zoom" class="btn-style btn-second">View this story's NikYak</a>
+      <%= link_to random_change_link_vote, upvote_nik_url(nik), data: { method: :patch, remote: true }, class: "upvote-link btn-style btn-second btn-mini" %>
+      <a href="#" class="zoom btn-style btn-second btn-mini">View this story's NikYak</a>
     </div>
     <%#= link_to "Story tree", tree_nik_path(@nik), class: "tree-link" %>
   <% end %>

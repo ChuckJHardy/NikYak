@@ -158,6 +158,12 @@ h1 {
   color: $main-color-inverse;
 }
 
+.btn-mini {
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+
 //Structure
 
 .section {
@@ -330,11 +336,10 @@ h1 {
   text-align: center;
 }
 
-.story-intro-actions .btn-second {
-  font-size: 13px;
+.story-intro-actions .btn-mini {
   margin-top: 15px;
-  padding: 5px 10px;
 }
+
 
 //Hero
 .hero {
@@ -443,14 +448,20 @@ form.new_nik .nik_fields {
 .next-step-message {
   background-color: #eee;
   padding: 30px;
+  text-align: center;
 }
 
 .next-step-message h3 {
   margin: 0 0 20px 0;
+  text-align: center;
 }
 
 .next-step-message h4 {
   font-weight: bold;
+}
+
+.next-step-message p {
+  margin-bottom: 10px;
 }
 
 // All stories
