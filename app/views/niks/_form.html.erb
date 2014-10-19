@@ -14,12 +14,12 @@
   <%= f.hidden_field :parent_id %>
   <div class="form-group">
     <label><%= f.label :title %></label>
-    <%= f.text_field :title, :class => "nik_fields_new", :autofocus => true %>
+    <%= f.text_field :title, :class => "nik_fields_new", :autofocus => true, :required => true %>
   </div>
   <div class="form-group">
     <label>Introduction paragraph</label>
     <div class="field-explaination">Write an introduction for your story, but just a paragraph. Other people will contribute based on this introduction.</div>
-    <%= f.text_area :body, :class => "nik_fields_new" %>
+    <%= f.text_area :body, :class => "nik_fields_new", :required => true %>
   </div>
   <%# <div class="form-group"> %>
   <%#   <label>Submission limit</label> %>
