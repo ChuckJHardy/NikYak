@@ -7,7 +7,7 @@
       <%= render 'share_your_yak', yak: @nik %>
     <% end %>
   <% else %>
-    <h3>This story isn't finished yet. What now?</h3>
+    <h3><%= random_change_link_what_now %></h3>
     <%= link_to "Sign in", new_user_session_path(nik_id: @nik.id), :class => "btn-style btn-main" %>
   <% end %>
 

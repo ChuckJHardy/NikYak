@@ -27,9 +27,10 @@ module NiksHelper
     [
       "What happens next?",
       "This is getting exciting! Now what?",
-      "Wrap it up!",
       "I can hardly wait to see what happens next!",
-      "I'm on the edge of my seat! I can't imagine what's going to happen!"
+      "I'm on the edge of my seat! What's going to happen?",
+      "I'll bet you know where to take this story next.",
+      "What direction are you going to take this in?"
     ].shuffle.first
   end
 end
