@@ -1,5 +1,5 @@
 <% if nik %>
   <div class="<%=point%>">
-    <%= link_to "Go #{point}", nik_path(nik), data: { replace: true, push: true } %>
+    <%= link_to display, nik_path(nik), data: { replace: true, push: true } %>
   </div>
 <% end %>
