@@ -21,21 +21,27 @@ class TreeStructure
   end
 
   def node(nik)
-    {
+    attributes = {
+      id: nik.id,
       is_current: @nik == nik,
       url: nik_path(nik),
-      name: nik.path,
-      title: nik.title,
-      body: nik.body,
-      parent: "null",
+      parent: nik.parent.try(:id),
       children: get_children(nik),
       branches: root.last_leaves.count
     }
+
+    attributes.merge!(current_path: path_ids) if nik.root?
+
+    attributes
   end
 
   def get_children(parent)
     parent.children.map do |child|
       node(child)
     end
+  end
+
+  def path_ids
+    @nik.first_branch.map(&:id)
   end
 end

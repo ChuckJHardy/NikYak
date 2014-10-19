@@ -59,18 +59,28 @@ class @Tree
 
     nodeEnter.append("circle")
       .attr("r", 10)
-      .attr("class", (d) -> if d.is_current then "current" else "")
+      .attr("class", (d) =>
+        switch true
+          when d.is_current then "current"
+          when @root.current_path.indexOf(d.id) > -1 then "in-path"
+          else "nik"
+      )
 
     link = @svg.selectAll("path.link")
       .data(links, (d) -> d.target.id)
 
 
     link.enter().insert("path", "g")
-      .attr("class", "link")
+      .attr("class", (d) =>
+        if @root.current_path.indexOf(d.target.id) > -1
+          "link current-link"
+        else
+          "link"
+      )
       .attr("d", @diagonal)
 
   marginLeft: =>
-    @width() / 2 - ( @treeWidth() / 2 ) + 30 # this drives me insane, and all mathematicians are crying reding this
+    @width() / 2 - ( @treeWidth() / 2 )
 
   marginRight: =>
     120

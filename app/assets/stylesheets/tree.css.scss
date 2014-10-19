@@ -3,15 +3,23 @@
   stroke: #333;
   stroke-width: 2px;
   pointer-events: all;
-}
 
-.node circle:hover {
-  fill: #fdf;
-  cursor: pointer;
-}
+  &.nik {
+    // just a regular node
+  }
 
-.node circle.current {
-  fill: #E7A53C;
+  &.in-path {
+    // this one is a part of current branch
+  }
+
+  &.current {
+    fill: #E7A53C;
+  }
+
+  &:hover{
+    fill: #fdf;
+    cursor: pointer;
+  }
 }
 
 .node text { font: 12px sans-serif; }
@@ -20,4 +28,8 @@
   fill: none;
   stroke: #ccc;
   stroke-width: 2px;
+
+  &.current-link {
+    // the link that connects current branch
+  }
 }
