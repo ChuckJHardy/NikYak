@@ -1,53 +1,40 @@
 class TreeStructure
+  include Rails.application.routes.url_helpers
+
   class << self
     def structure(nik)
-      [
-        {
-          name: "Top Level",
-          parent: "null",
-          children: [
-            {
-              name: "Level 2: A",
-              parent: "Top Level",
-              children: [
-                {
-                  name: "Son of A",
-                  parent: "Level 2: A"
-                },
-                {
-                  name: "Daughter of A",
-                  parent: "Level 2: A"
-                }
-              ]
-            },
-            {
-              name: "Level 2: B",
-              parent: "Top Level"
-            }
-          ]
-        }
-      ]
+      new(nik).structure
     end
+  end
 
-    def structure2(nik)
-      root = nik.root || nik
+  def initialize(nik)
+    @nik = nik
+  end
 
-      [{ name: name(root), body: root.body, parent: "null", children: get_children(root) }]
-    end
+  def structure
+    [node(root)]
+  end
 
-    def get_children(parent)
-      puts parent.inspect
-      parent.children.map do |child|
-        { name: name(child), body: child.body, parent: name(parent), children: get_children(child) }
-      end
-    end
+  private
+  def root
+    @root ||= @nik.root || @nik
+  end
 
-    def name(node)
-      if node.title
-        "#{node.title}-#{node.id}"
-      else
-        "#{node.body[0..55]}-#{node.id}"
-      end
+  def node(nik)
+    {
+      is_current: @nik == nik,
+      url: nik_path(nik),
+      name: nik.path,
+      title: nik.title,
+      body: nik.body,
+      parent: "null",
+      children: get_children(nik)
+    }
+  end
+
+  def get_children(parent)
+    parent.children.map do |child|
+      node(child)
     end
   end
 end

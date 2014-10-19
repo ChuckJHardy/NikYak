@@ -1,0 +1,23 @@
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+  pointer-events: all;
+}
+
+.node circle:hover {
+  fill: #fdf;
+  cursor: pointer;
+}
+
+.node circle.current {
+  fill: #ffa;
+}
+
+.node text { font: 12px sans-serif; }
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}

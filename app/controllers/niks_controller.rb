@@ -52,7 +52,7 @@ class NiksController < AuthorizedController
   end
 
   def tree
-    @tree = TreeStructure.structure2(@nik)
+    @tree = TreeStructure.structure(@nik)
   end
 
   private
