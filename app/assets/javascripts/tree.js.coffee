@@ -74,7 +74,7 @@ class @Tree
     120
 
   treeWidth: =>
-    document.getElementById(@treeSvgContainerId).getBBox().width
+    document.getElementById(@treeSvgContainerId).getBBox().width - 50
 
   width: =>
     $(@parentContainer).width()
