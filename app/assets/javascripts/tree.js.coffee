@@ -61,13 +61,6 @@ class @Tree
       .attr("r", 10)
       .attr("class", (d) -> if d.is_current then "current" else "")
 
-    nodeEnter.append("text")
-      .attr("y", (d) -> if (d.children || d._children) then -18 else 18)
-      .attr("dy", ".35em")
-      .attr("text-anchor", "middle")
-      .text((d) -> d.title)
-      .style("fill-opacity", 1)
-
     link = @svg.selectAll("path.link")
       .data(links, (d) -> d.target.id)
 
