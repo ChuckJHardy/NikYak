@@ -17,6 +17,7 @@
       <div class="col-sm-6">
         <div class="story-thumbnail">
           <h2 class="story-thumbnail-title"><%= link_to nik.title, nik %></h2>
+          <h4><%= nik.leaves.count %> Replies and <%= nik.votes %> Votes</h4>
           <p><%= link_to nik.body, nik %></p>
         </div>        
       </div>

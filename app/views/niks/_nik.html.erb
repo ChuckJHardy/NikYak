@@ -4,6 +4,9 @@
     <%= link_to "Story tree", tree_nik_path(@nik), class: "tree-link" %>
   <% end %>
   <h5 class="story-intro-info">
+    <div class="replies-container">
+      <%= nik.leaves.count %> Replies
+    </div>
     <%= render partial: "upvote", locals: { nik: nik } %>
     <%# Story ends on paragraph <%= nik.limit %1> %>
   </h5>

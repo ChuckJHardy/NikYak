@@ -3,6 +3,7 @@
   <% @niks.each do |nik| %>
   <div class="story">
     <h2 class="story-title"><%= link_to nik.title, nik %></h2>
+    <p class="story-vote-count">Replies: <%= nik.leaves.count %></p>
     <p class="story-vote-count">Votes: <%= nik.votes %></p>
     <p class="story-intro"><%= nik.body %></p>
   </div>
