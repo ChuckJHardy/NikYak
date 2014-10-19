@@ -326,12 +326,31 @@ h1 {
 
 .hero-title {
   font-size: 48px;
-  margin: 0 0 30px 0;
+}
+
+.hero-title-first {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-title-second {
+  font-size: 38px;
+  font-style: oblique;
+  margin-top: 10px;
 }
 
 .hero-subtitle {
   font-size: 20px;
+  line-height: 32px;
   margin-bottom: 30px;
+}
+
+.hero-divider {
+  display: inline-block;
+  margin: 30px auto;
+  width: 100px;
+  height: 2px;
+  background-color: black;
 }
 
 .hero .btn-main {
