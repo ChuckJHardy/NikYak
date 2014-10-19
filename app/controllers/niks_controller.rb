@@ -19,6 +19,8 @@ class NiksController < AuthorizedController
     if user_signed_in?
       @new_nik = Nik.new(user_id: current_user.id, parent: @nik.potential_parent)
     end
+
+    @tree = TreeStructure.structure(@nik)
     respond_with(@nik)
   end
 
