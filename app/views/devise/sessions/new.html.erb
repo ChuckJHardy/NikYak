@@ -1,5 +1,5 @@
 <div class="authform sign-up">
-  <%= link_to "Just let me tell a story", guest_path(nik_id: params[:nik_id]), :class => "btn-style btn-main" %>
+  <%= link_to "Just let me in!", guest_path(nik_id: params[:nik_id]), :class => "btn-style btn-main" %>
   <%= link_to "Sign in with Book Face", omniauth_url(:facebook, nik_id: params[:nik_id]), :class => "btn-style btn-second" %>
   <%= link_to "Sign in with Twattah", omniauth_url(:twitter, nik_id: params[:nik_id]), :class => "btn-style btn-second" %>
   <%= link_to "I hate those social things", new_registration_path(resource_name), :class => "btn-style btn-second" %>
