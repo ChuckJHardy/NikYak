@@ -4,7 +4,10 @@ class NiksController < AuthorizedController
   
   def guest
     guest_user
-    redirect_to new_nik_path
+    path = new_nik_path
+    path = nik_path(id: params[:nik_id]) if params[:nik_id]
+
+    redirect_to path
   end
 
   def index

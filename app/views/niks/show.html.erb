@@ -8,6 +8,6 @@
     <% end %>
   <% else %>
     <h3>This story isn't finished yet. What now?</h3>
-    <%= link_to "Sign in", new_user_session_path, :class => "btn-style btn-main" %>
+    <%= link_to "Sign in", new_user_session_path(nik_id: @nik.id), :class => "btn-style btn-main" %>
   <% end %>
 </div>
