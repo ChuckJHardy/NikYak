@@ -203,6 +203,13 @@ h1 {
   }
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+  .navbar-brand {
+    background: transparent image-url("logo@2x.png") no-repeat;
+    background-size: 107px 47px;
+  }
+}
+
 .navbar-toggle {
   background-color: $accent-color;
   border-color: $accent-color;
