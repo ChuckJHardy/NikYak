@@ -1,27 +1,11 @@
-<h1>Listing niks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Votes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @niks.each do |nik| %>
-      <tr>
-        <td><%= nik.title %></td>
-        <td><%= nik.body %></td>
-        <td><%= nik.votes %></td>
-        <td><%= link_to 'Show', nik %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Nik', new_nik_path %>
+<div class="container">
+  <h1>All stories</h1>
+  <%= link_to 'New Nik', new_nik_path %>
+  <% @niks.each do |nik| %>
+  <div class="story">
+    <h2 class="story-title"><%= link_to nik.title, nik %></h2>
+    <p class="story-vote-count">Votes: <%= nik.votes %></p>
+    <p class="story-intro"><%= nik.body %></p>
+  </div>
+  <% end %>
+</div>

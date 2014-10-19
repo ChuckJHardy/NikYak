@@ -367,3 +367,19 @@ h1, h2, h3 {
 .next-step-message h4 {
   font-weight: bold;
 }
+
+// All stories
+.story {
+  @include border-bottom-style;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.story-title a {
+  color: $main-color;
+  font-size: 24px;
+}
+
+.story-vote-count {
+  font-size: 13px;
+}
