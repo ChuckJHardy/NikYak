@@ -1,7 +1,7 @@
 class NiksController < AuthorizedController
-  before_action :set_nik, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :set_nik, only: [:show, :edit, :update, :destroy, :upvote, :tree]
   skip_before_action :authenticate, only: [:show, :index, :guest]
-  
+
   def guest
     guest_user
     path = new_nik_path
@@ -49,6 +49,10 @@ class NiksController < AuthorizedController
   def upvote
     @nik.upvote!
     render partial: "upvote", locals: { nik: @nik }
+  end
+
+  def tree
+    @tree = TreeStructure.structure(@nik)
   end
 
   private
