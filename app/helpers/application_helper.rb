@@ -13,4 +13,13 @@ module ApplicationHelper
       after_sign_up_url: session[:after_sign_up_url]
     )
   end
+
+  def render_tree(nik, container = "body")
+    (<<-JS
+      <script type="text/javascript">
+        new Tree(#{TreeStructure.structure(nik).to_json});
+      </script>
+    JS
+    ).html_safe
+  end
 end
