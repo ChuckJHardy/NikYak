@@ -28,7 +28,8 @@ class TreeStructure
       title: nik.title,
       body: nik.body,
       parent: "null",
-      children: get_children(nik)
+      children: get_children(nik),
+      branches: root.last_leaves.count
     }
   end
 

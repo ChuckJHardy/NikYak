@@ -44,8 +44,11 @@ class @Tree
 
     nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .attr("transform", (d) ->
-        "translate(" + d.x + "," + d.y + ")"
+      .attr("transform", (d) =>
+        if @root.branches > 0
+          "translate(" + d.x + "," + d.y + ")"
+        else
+          "translate(" + 0 + "," + d.y + ")"
       )
       .on("click", (d) -> window.location = d.url )
 
@@ -68,13 +71,13 @@ class @Tree
       .attr("d", @diagonal)
 
   marginLeft: =>
-    @width() / 2 - ( @treeWidth() / 2 )
+    @width() / 2 - ( @treeWidth() / 2 ) + 30 # this drives me insane, and all mathematicians are crying reding this
 
   marginRight: =>
     120
 
   treeWidth: =>
-    document.getElementById(@treeSvgContainerId).getBBox().width - 50
+    document.getElementById(@treeSvgContainerId).getBBox().width
 
   width: =>
     $(@parentContainer).width()
