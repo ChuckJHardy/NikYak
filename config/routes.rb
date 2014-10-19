@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :niks do
     patch :upvote, on: :member
+    get :tree, on: :member
   end
 
   get "/guest", to: "niks#guest"
