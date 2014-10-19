@@ -3,6 +3,18 @@
   stroke: #333;
   stroke-width: 2px;
   pointer-events: all;
+
+  .nik {
+    // just a regular node
+  }
+
+  .in-path {
+    // this one is a part of current branch
+  }
+
+  .current {
+    // the one that's id is diplayed in address bar
+  }
 }
 
 .node circle:hover {
@@ -20,4 +32,8 @@
   fill: none;
   stroke: #ccc;
   stroke-width: 2px;
+
+  .current-link {
+    // the link that connects current branch
+  }
 }
