@@ -1,35 +1,37 @@
 class @Tree
   margin:
     top: 40,
-    right: 120,
-    bottom: 20,
-    left: 120
+    bottom: 20
 
-  width: 960
   height: 500
 
-  constructor: (@data) ->
-    @tree_width = @width - @margin.right - @margin.left
+  treeSvgId: "tree-svg"
+  treeSvgContainerId: "tree-svg-container"
+
+  constructor: (@data, @parentContainer = "body") ->
     @tree_height = @height - @margin.top - @margin.bottom
 
     @i = 0
 
     @tree = d3.layout.tree()
       .separation( (a, b) -> 2 )
-      .size([@tree_height, @tree_width])
+      .size([@tree_height, @width()])
 
     @diagonal = d3.svg.diagonal()
       .projection( (d) -> [d.x, d.y])
 
-    @svg = d3.select("body").append("svg")
-      .attr("width", @width)
+    @svg = d3.select(@parentContainer).append("svg")
+      .attr("id", @treeSvgId)
+      .attr("width", @width())
       .attr("height", @height)
       .append("g")
-      .attr("transform", "translate(" + @margin.left + "," + @margin.top + ")")
+      .attr("id", @treeSvgContainerId)
 
     @root = @data[0]
 
     @update(@root)
+
+    @svg.attr("transform", "translate(" + @marginLeft() + "," + @margin.top + ")")
 
   update: (source) =>
     nodes = @tree.nodes(@root).reverse()
@@ -64,6 +66,19 @@ class @Tree
     link.enter().insert("path", "g")
       .attr("class", "link")
       .attr("d", @diagonal)
+
+  marginLeft: =>
+    @width() / 2 - ( @treeWidth() / 2 )
+
+  marginRight: =>
+    120
+
+  treeWidth: =>
+    document.getElementById(@treeSvgContainerId).getBBox().width
+
+  width: =>
+    $(@parentContainer).width()
+
 
 
 
