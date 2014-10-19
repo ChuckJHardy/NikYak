@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= link_to (@nik.title || "It's a Reply"), nik_url(@nik) %></h1>
+    <p><%= @nik.body %></p>
+  </body>
+</html>
