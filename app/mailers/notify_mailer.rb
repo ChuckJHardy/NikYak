@@ -1,6 +1,6 @@
 class NotifyMailer < ActionMailer::Base
   default from: "nikyak@insert.coffee",
-    to: ["chuckhardy@gmail.com", "chanhthedj@gmail.com", "jekabsons.edgars@gmail.com"]
+    to: ["chuckjhardy@gmail.com", "chanhthedj@gmail.com", "jekabsons.edgars@gmail.com"]
 
   def nik_added_email(nik)
     @nik = nik
