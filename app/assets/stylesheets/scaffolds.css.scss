@@ -38,7 +38,7 @@ $accent-color: #E97131;
 
 $main-color-inverse: #ffffff;
 
-$button-border-color: #ffffff;
+$button-border-color: #000000;
 
 *:focus {
   outline:0;
@@ -199,7 +199,7 @@ h1, h2, h3 {
 
 //Sign-up
 .sign-up {
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
 }
 
