@@ -188,6 +188,13 @@ h1, h2, h3 {
   padding: 0;
 }
 
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .navbar-brand {
+    margin-left: 15px;
+  }
+}
+
 .navbar-toggle {
   background-color: $accent-color;
   border-color: $accent-color;
