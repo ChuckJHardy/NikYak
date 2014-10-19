@@ -14,10 +14,11 @@
   <div class="row">
     <% @niks.shuffle.first(2).each do |nik| %>
       <div class="col-sm-6">
+        <div class="story-thumbnail">
           <h2 class="story-thumbnail-title"><%= link_to nik.title, nik %></h2>
           <p><%= link_to nik.body, nik %></p>
-          <h3>...</h3>
         </div>        
+      </div>        
     <% end %>
   </div>
 </div>

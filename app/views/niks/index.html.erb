@@ -1,6 +1,5 @@
-<div class="container">
+<div class="container all-stories">
   <h1>All stories</h1>
-  <%= link_to 'New Nik', new_nik_path %>
   <% @niks.each do |nik| %>
   <div class="story">
     <h2 class="story-title"><%= link_to nik.title, nik %></h2>
@@ -8,4 +7,5 @@
     <p class="story-intro"><%= nik.body %></p>
   </div>
   <% end %>
+  <%= link_to 'Create a new story', new_nik_path, :class => "btn-style btn-second" %>
 </div>

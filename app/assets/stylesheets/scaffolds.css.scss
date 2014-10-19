@@ -322,24 +322,19 @@ h1, h2, h3 {
 }
 
 //Story thumbnail
-.story-thumbnail {
-  @include drop-shadow;
-  @include border-style;
-  background-color: white;
-  height: 200px;
-  margin-bottom: 30px;
-  padding: 20px;
-  position: relative;
+.story-thumbnail p a{
+  color: $main-color;
+  font-size: 16px;
+  line-height: 25px;
 }
 
-.story-thumbnail-title {
-  line-height: 24px;
-  margin: 0;
+.story-thumbnail p a:hover {
+  text-decoration: none;
 }
 
 .story-thumbnail-title a{
   color: $main-color;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -369,6 +364,12 @@ h1, h2, h3 {
 }
 
 // All stories
+
+.all-stories .btn-second {
+  display: block;
+  text-align: center;
+}
+
 .story {
   @include border-bottom-style;
   margin-bottom: 20px;
