@@ -350,8 +350,7 @@ h1, h2, h3 {
 
 // Next step
 .next-step-message {
-  @include border-style;
-  @include drop-shadow;
+  background-color: #eee;
   padding: 30px;
 }
 
