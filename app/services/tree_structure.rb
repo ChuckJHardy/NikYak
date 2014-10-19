@@ -25,6 +25,7 @@ class TreeStructure
       id: nik.id,
       is_current: @nik == nik,
       url: nik_path(nik),
+      body: nik.body[0..55],
       parent: nik.parent.try(:id),
       children: get_children(nik),
       branches: root.last_leaves.count
